@@ -1,0 +1,179 @@
+/* Styles scoped to the Hero component to match the provided design */
+.hero {
+  position: relative;
+  height: 100%;
+  width: 100%;
+  overflow: hidden;
+  color: #ffffff;
+  --hero-left-anchor: clamp(4.45rem, 7.7vw, 7.45rem);
+  --hero-title-y-offset: 85%;
+}
+
+.hero__bg {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  background-image:
+    linear-gradient(rgba(0, 0, 0, 0.45), rgba(0, 0, 0, 0.45)),
+    url("/img_1.png");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  transform: translateZ(0);
+  animation: motionBlur 8s ease-in-out infinite;
+}
+
+@keyframes motionBlur {
+  0% {
+    filter: blur(0px) brightness(1);
+    transform: scaleX(1);
+  }
+  25% {
+    filter: blur(2px) brightness(0.95);
+    transform: scaleX(1.02);
+  }
+  50% {
+    filter: blur(3px) brightness(0.9);
+    transform: scaleX(1.03);
+  }
+  75% {
+    filter: blur(2px) brightness(0.95);
+    transform: scaleX(1.02);
+  }
+  100% {
+    filter: blur(0px) brightness(1);
+    transform: scaleX(1);
+  }
+}
+
+/* Large red translucent "PORTFOLIO" text across the hero */
+.hero__title-giant {
+  position: absolute;
+  left: 50%;
+  right: auto;
+  top: clamp(2rem, 6vh, 4.2rem);
+  font-family: var(--font-it-kroxen-demo), var(--font-brandel-luchador), "Arial Narrow", "Franklin Gothic Medium", sans-serif;
+  font-size: clamp(5.9rem, 19vw, 19rem);
+  line-height: 0.72;
+  font-weight: 500;
+  letter-spacing: 0.012em;
+  transform: translateX(-50%) translateY(calc(var(--hero-title-y-offset) - 10%)) scale(1.14, 1.38);
+  transform-origin: center top;
+  color: rgba(112, 15, 15, 0.82);
+  z-index: 5;
+  pointer-events: none;
+  white-space: nowrap;
+  text-align: center;
+}
+
+.hero__content {
+  position: absolute;
+  left: var(--hero-left-anchor);
+  bottom: clamp(1.9rem, 6.6vh, 4.4rem);
+  z-index: 10;
+  max-width: 46rem;
+  width: fit-content;
+  transform: translateY(-10%);
+  font-family: var(--font-geologica), Arial, Helvetica, sans-serif;
+}
+
+.hero__name {
+  font-size: clamp(1.72rem, 4.1vw, 3.1rem);
+  margin: 0 0 0.95rem 0;
+  color: #fff;
+  font-weight: 500;
+  white-space: nowrap;
+}
+
+.hero__roles {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  gap: clamp(1.3rem, 3.4vw, 3.1rem);
+  color: #f1f1f1;
+  font-size: clamp(1.14rem, 1.62vw, 1.55rem);
+  margin-bottom: 1.35rem;
+}
+
+.hero__cta {
+  display: block;
+  width: max-content;
+  color: #fff;
+  text-decoration: none;
+  font-size: clamp(1rem, 1.5vw, 1.42rem);
+  border: 1px solid rgba(255, 255, 255, 0.72);
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.14);
+  padding: 0.58rem 1.25rem;
+  margin: 0.4rem auto 0;
+  transition: transform 0.2s ease, opacity 0.2s ease, border-color 0.2s ease, background-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.hero__cta:hover {
+  opacity: 0.96;
+  color: #ffffff;
+  border-color: #c62828;
+  background: #c62828;
+  transform: translateY(-2px);
+  box-shadow: 0 8px 22px rgba(0, 0, 0, 0.25);
+}
+
+.hero__portrait {
+  position: absolute;
+  right: clamp(11.5rem, 1.32vw, 1.5rem);
+  bottom: 0;
+  width: clamp(179px, 17.9vw, 293px);
+  z-index: 15;
+  transform: translateZ(0);
+}
+
+.hero__portrait img {
+  width: 100%;
+  height: auto;
+}
+
+@media (max-width: 768px) {
+  .hero__title-giant {
+    left: 50%;
+    right: auto;
+    top: clamp(5.2rem, 14vh, 7.2rem);
+    font-size: clamp(3.2rem, 18vw, 5.8rem);
+    line-height: 0.72;
+    letter-spacing: 0.01em;
+    transform: translateX(-50%) translateY(calc(var(--hero-title-y-offset) - 10%)) scale(1.08, 1.22);
+    transform-origin: center top;
+    color: rgba(112, 15, 15, 0.82);
+  }
+
+  .hero__content {
+    left: 1.85rem;
+    right: 1.85rem;
+    bottom: clamp(1.9rem, 7vh, 3rem);
+    width: auto;
+    transform: translateY(-10%);
+  }
+
+  .hero__portrait {
+    right: 0.18rem;
+    width: clamp(94px, 22.1vw, 138px);
+  }
+
+  .hero__name {
+    font-size: clamp(1.86rem, 7vw, 2.52rem);
+    white-space: normal;
+  }
+
+  .hero__roles {
+    gap: 1.1rem;
+    font-size: clamp(1.12rem, 4.9vw, 1.5rem);
+    width: 100%;
+    justify-content: space-between;
+  }
+}
+
+/* Respect reduced motion preference */
+@media (prefers-reduced-motion: reduce) {
+  .hero__bg {
+    transition: none;
+  }
+}

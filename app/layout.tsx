@@ -1,6 +1,9 @@
 import type { Metadata } from "next";
-import { Geist, Geist_Mono } from "next/font/google";
+import { Geist, Geist_Mono, Geologica } from "next/font/google";
+import localFont from "next/font/local";
 import "./globals.css";
+import SkipLink from "./components/SkipLink";
+import Nav from "./components/Nav";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -10,6 +13,24 @@ const geistSans = Geist({
 const geistMono = Geist_Mono({
   variable: "--font-geist-mono",
   subsets: ["latin"],
+});
+
+const geologica = Geologica({
+  variable: "--font-geologica",
+  subsets: ["latin"],
+  weight: ["400", "500", "600"],
+});
+
+const brandelLuchador = localFont({
+  src: "../public/BrandelLuchador-Regular.ttf",
+  variable: "--font-brandel-luchador",
+  display: "swap",
+});
+
+const itKroxenDemo = localFont({
+  src: "../public/ITKroxenDemo-Bold.otf",
+  variable: "--font-it-kroxen-demo",
+  display: "swap",
 });
 
 export const metadata: Metadata = {
@@ -25,9 +46,13 @@ export default function RootLayout({
   return (
     <html
       lang="en"
-      className={`${geistSans.variable} ${geistMono.variable} h-full antialiased`}
+      className={`${geistSans.variable} ${geistMono.variable} ${geologica.variable} ${brandelLuchador.variable} ${itKroxenDemo.variable} h-full antialiased`}
     >
-      <body className="min-h-full flex flex-col">{children}</body>
+      <body className="min-h-full flex flex-col">
+        <SkipLink />
+        <Nav />
+        {children}
+      </body>
     </html>
   );
 }
