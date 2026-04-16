@@ -1,61 +1,87 @@
-/* krisss96/work-portfolio/app/components/ProjectsCarousel.tsx */
 "use client";
 
-import { useMemo, useState } from "react";
-import Image from "next/image";
-import Link from "next/link";
+import React, { useState } from 'react';
+import { Canvas } from '@react-three/fiber';
+import { Text } from '@react-three/drei';
+import * as THREE from 'three';
 import type { Project } from "@/lib/projects";
 import styles from "./ProjectsCarousel.module.css";
 
+function ProjectSlot({ project, slotIndex }: {
+    project: Project;
+    slotIndex: number;
+}) {
+    // Radius of the invisible circle the cards sit on
+    const radius = 15;
+    // Spacing between the boxes
+    const theta = 0.35;
+
+    // The angle for this specific fixed slot
+    const angle = slotIndex * theta;
+
+    // Reverse the arc so the center sits farther back and the curve opens toward camera
+    const x = Math.sin(angle) * radius;
+    const z = -Math.cos(angle) * radius;
+
+    return (
+        <group position={[x, 0, z]} rotation={[0, -angle, 0]}>
+            <mesh>
+                <planeGeometry args={[4.8, 5]} />
+                <meshBasicMaterial color="#222" side={THREE.DoubleSide} />
+            </mesh>
+            <Text
+                position={[0, -2.9, 0.1]}
+                fontSize={0.22}
+                color="#120a43"
+                anchorX="center"
+            >
+                {project.title.toUpperCase()}
+            </Text>
+        </group>
+    );
+}
+
 export default function ProjectsCarousel({ projects }: { projects: Project[] }) {
-  const [activeIndex, setActiveIndex] = useState(0);
-  const projectCount = projects.length;
+    const [offset, setOffset] = useState(0);
+    const projectCount = projects.length;
 
-  const shiftIndex = (delta: number) => {
-    setActiveIndex((current) => (current + delta + projectCount) % projectCount);
-  };
+    const next = () => setOffset((prev) => (prev + 1) % projectCount);
+    const prev = () => setOffset((prev) => (prev - 1 + projectCount) % projectCount);
 
-  const visibleSlides = useMemo(() => {
-    if (projectCount === 0) return [];
-    const getAt = (offset: number) => projects[(activeIndex + offset + projectCount) % projectCount];
+    return (
+        <section className={styles.section}>
+            <header className={styles.header}>
+                <div className={styles.breadcrumb}>INTERACTIONS, LAYOUT, & CUSTOM CODE</div>
+            </header>
 
-    return [
-      { project: getAt(-2), slot: "edgeLeft" as const },
-      { project: getAt(-1), slot: "left" as const },
-      { project: getAt(0), slot: "center" as const },
-      { project: getAt(1), slot: "right" as const },
-      { project: getAt(2), slot: "edgeRight" as const },
-    ];
-  }, [activeIndex, projectCount, projects]);
+            <div className={styles.canvasStage}>
+                {/* We move the camera further back to see the outward arch */}
+                <Canvas camera={{ position: [0, 0, 18], fov: 35 }}>
+                    <ambientLight intensity={0.5} />
 
-  if (projectCount === 0) return null;
+                    {/* Shift the reversed arc closer to the camera */}
+                    <group position={[0, 0, 14]}>
+                        {projects.map((_, index) => {
+                            // This logic keeps the ARCH positions fixed
+                            const projectIndex = (index + offset) % projectCount;
+                            const slotIndex = index - (projectCount - 1) / 2;
 
-  return (
-      <section className={styles.section}>
-        <div className={styles.viewport}>
-          <div className={styles.rail}>
-            {visibleSlides.map(({ project, slot }, index) => (
-                <Link
-                    key={`${project.slug}-${slot}-${index}`}
-                    href={`/projects/${project.slug}`}
-                    className={`${styles.slide} ${styles[slot]}`}
-                >
-                  <Image
-                      src={project.heroImage.src}
-                      alt={project.heroImage.alt}
-                      fill
-                      className={styles.slideImage}
-                      priority={slot === "center"}
-                  />
-                </Link>
-            ))}
-          </div>
-        </div>
+                            return (
+                                <ProjectSlot
+                                    key={projects[projectIndex].slug}
+                                    project={projects[projectIndex]}
+                                    slotIndex={slotIndex}
+                                />
+                            );
+                        })}
+                    </group>
+                </Canvas>
+            </div>
 
-        <div className={styles.controls}>
-          <button className={styles.arrowButton} onClick={() => shiftIndex(-1)}>&larr;</button>
-          <button className={styles.arrowButton} onClick={() => shiftIndex(1)}>&rarr;</button>
-        </div>
-      </section>
-  );
+            <div className={styles.controls}>
+                <button className={styles.arrowButton} onClick={prev}>&larr;</button>
+                <button className={styles.arrowButton} onClick={next}>&rarr;</button>
+            </div>
+        </section>
+    );
 }
