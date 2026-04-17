@@ -24,6 +24,7 @@
     radial-gradient(circle at top left, rgba(100, 100, 100, 0.18), transparent 40%),
     radial-gradient(circle at bottom right, rgba(80, 80, 80, 0.16), transparent 36%),
     linear-gradient(180deg, #3a3a3a 0%, #323232 55%, #2a2a2a 100%);
+  text-align: center;
   color: #ffffff;
 }
 
@@ -113,6 +114,8 @@
   position: absolute;
   left: 0;
   right: 0;
+  bottom: 0;
+  top: auto;
   transform: translateY(-2%) scaleY(1.19);
   transform: translateY(-2%) scaleY(1.08);
   text-align: center;
@@ -136,11 +139,16 @@
 }
 
 .header {
+  width: 100%;
   max-width: 48rem;
   margin-bottom: 4.1rem;
+  margin-left: auto;
+  margin-right: auto;
+  margin-right: 30%;
 }
 
 .title {
+  display: inline-block;
   margin: 0;
   font-family: var(--font-it-kroxen-demo), var(--font-brandel-luchador), "Arial Narrow", "Franklin Gothic Medium", sans-serif;
   font-size: clamp(3.2rem, 8.4vw, 7.1rem);
@@ -204,6 +212,7 @@
   font-size: clamp(1.2rem, 2vw, 1.5rem);
   letter-spacing: 0.04em;
   color: rgba(112, 15, 15, 0.72);
+  font-weight: 700;
 }
 
 

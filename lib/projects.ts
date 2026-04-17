@@ -100,6 +100,114 @@ export const projects: Project[] = [
       "How to design a flexible page structure that works across many project types.",
     ],
   },
+  {
+    slug: "temp-interactive-landing",
+    title: "Temp Interactive Landing",
+    subtitle: "Motion-first marketing page prototype",
+    summary:
+      "A temporary concept project used to test animated sections, scroll transitions, and responsive content blocks.",
+    year: "2026",
+    period: "April 2026",
+    role: "Frontend Developer",
+    heroImage: {
+      src: "/img.png",
+      alt: "Temporary interactive landing project preview",
+    },
+    demoUrl: "https://example.com/temp-interactive-landing",
+    repoUrl: "https://github.com/example/temp-interactive-landing",
+    demoVideoUrl: "https://www.youtube.com/embed/dQw4w9WgXcQ",
+    stack: ["Next.js", "TypeScript", "CSS Modules", "Framer Motion"],
+    highlights: [
+      "Tested hero motion patterns and staggered reveal timing.",
+      "Built reusable layout blocks for rapid landing page variants.",
+      "Validated responsive spacing and typography behavior.",
+    ],
+    whatILearned: [
+      "How to tune animation intensity without harming readability.",
+      "How to structure temporary prototypes so they can be productionized later.",
+    ],
+  },
+  {
+    slug: "temp-component-lab",
+    title: "Temp Component Lab",
+    subtitle: "UI patterns sandbox for portfolio sections",
+    summary:
+      "A temporary internal project for experimenting with card systems, CTA styles, and section composition before final integration.",
+    year: "2026",
+    period: "April 2026",
+    role: "UI Engineer",
+    heroImage: {
+      src: "/img_5.png",
+      alt: "Temporary component lab project preview",
+    },
+    demoUrl: "https://example.com/temp-component-lab",
+    repoUrl: "https://github.com/example/temp-component-lab",
+    demoVideoUrl: "https://www.youtube.com/embed/aqz-KE-bpKQ",
+    stack: ["Next.js", "React", "TypeScript", "Three.js"],
+    highlights: [
+      "Compared multiple card proportions for visual hierarchy.",
+      "Benchmarked spacing systems across desktop and mobile breakpoints.",
+      "Created a temporary token set for fast iteration.",
+    ],
+    whatILearned: [
+      "How to evaluate component variants quickly with realistic content.",
+      "How to keep experiments isolated while sharing a common data model.",
+    ],
+  },
+  {
+    slug: "temp-animation-studio",
+    title: "Temp Animation Studio",
+    subtitle: "Motion design prototyping workspace",
+    summary:
+      "A temporary project space for exploring advanced animation patterns, timing functions, and keyframe orchestration across complex UI states.",
+    year: "2026",
+    period: "April 2026",
+    role: "Motion Designer",
+    heroImage: {
+      src: "/img_1.png",
+      alt: "Temporary animation studio preview",
+    },
+    demoUrl: "https://example.com/temp-animation-studio",
+    repoUrl: "https://github.com/example/temp-animation-studio",
+    demoVideoUrl: "https://www.youtube.com/embed/dQw4w9WgXcQ",
+    stack: ["Next.js", "Framer Motion", "TypeScript", "CSS"],
+    highlights: [
+      "Developed smooth transitions between complex application states.",
+      "Built a library of reusable animation primitives.",
+      "Tested performance optimizations for high-frequency frame updates.",
+    ],
+    whatILearned: [
+      "How to balance motion delights with accessibility constraints.",
+      "How performant animations improve perceived app responsiveness.",
+    ],
+  },
+  {
+    slug: "temp-data-visualization",
+    title: "Temp Data Visualization",
+    subtitle: "Real-time metrics dashboard prototype",
+    summary:
+      "A temporary exploration of interactive data visualization techniques, live metrics rendering, and responsive chart layouts for monitoring workflows.",
+    year: "2026",
+    period: "April 2026",
+    role: "Data Visualization Engineer",
+    heroImage: {
+      src: "/img_2.png",
+      alt: "Temporary data visualization preview",
+    },
+    demoUrl: "https://example.com/temp-data-visualization",
+    repoUrl: "https://github.com/example/temp-data-visualization",
+    demoVideoUrl: "https://www.youtube.com/embed/kXYiU_JCYtU",
+    stack: ["Next.js", "D3.js", "TypeScript", "React"],
+    highlights: [
+      "Built dynamic, real-time chart updates without jank.",
+      "Implemented accessible color palettes for colorblind users.",
+      "Created responsive breakpoint strategies for dashboard layouts.",
+    ],
+    whatILearned: [
+      "How to present dense data clearly under performance constraints.",
+      "How to choose the right visualization for each metric type.",
+    ],
+  },
 ];
 
 export function getProjectBySlug(slug: string) {

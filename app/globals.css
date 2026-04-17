@@ -28,9 +28,17 @@ html, body, #__next {
 body {
   background: #000;
   color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: var(--font-jaldi), Arial, Helvetica, sans-serif;
   margin: 0;
   padding: 0;
+}
+
+html {
+  overflow-x: hidden;
+}
+
+body {
+  overflow-x: hidden;
 }
 
 /* Top navigation bar (full width) */
@@ -115,6 +123,7 @@ body {
   isolation: isolate;
   z-index: 1;
   box-shadow: none;
+  overflow: hidden;
 }
 
 .snap-section::before {
@@ -122,11 +131,13 @@ body {
   position: absolute;
   inset: 0;
   background-image: url("/b928b1b4-7b1d-43ba-a9b5-c30bd5d01487.jpg");
-  background-size: cover;
-  background-position: center;
+  background-size: 112% 112%;
+  background-position: 50% 50%;
   background-repeat: no-repeat;
   opacity: 0.18;
   mix-blend-mode: soft-light;
+  animation: textureDrift 18s ease-in-out infinite alternate;
+  will-change: transform;
   pointer-events: none;
   z-index: 0;
 }
@@ -193,6 +204,21 @@ body {
 .nav-link:focus,
 .nav-link:hover {
   outline: 2px solid rgba(0,0,0,0.12);
+}
+
+@keyframes textureDrift {
+  0% {
+    background-position: 50% 50%;
+    transform: translate3d(0, 0, 0) scale(1.03);
+  }
+  50% {
+    background-position: 53% 47%;
+    transform: translate3d(-0.8%, 0.7%, 0) scale(1.04);
+  }
+  100% {
+    background-position: 47% 53%;
+    transform: translate3d(0.7%, -0.8%, 0) scale(1.03);
+  }
 }
 
 /* Respect reduced motion */

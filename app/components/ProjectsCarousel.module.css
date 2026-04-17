@@ -1,12 +1,55 @@
 .section {
-  --surface: #f3e1ec;
   --ink: #120a43;
   width: 100%;
   height: 100vh;
   display: flex;
   flex-direction: column;
-  background: var(--surface);
+  background:
+    linear-gradient(180deg, rgba(255, 255, 255, 0.16), rgba(255, 255, 255, 0.05)),
+    radial-gradient(circle at top left, rgba(100, 100, 100, 0.18), transparent 40%),
+    radial-gradient(circle at bottom right, rgba(80, 80, 80, 0.16), transparent 36%),
+    linear-gradient(180deg, #3a3a3a 0%, #323232 55%, #2a2a2a 100%);
   overflow: hidden;
+  position: relative;
+  isolation: isolate;
+}
+
+.section::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background-image: url("/b928b1b4-7b1d-43ba-a9b5-c30bd5d01487.jpg");
+  background-size: 112% 112%;
+  background-position: 50% 50%;
+  background-repeat: no-repeat;
+  opacity: 0.18;
+  mix-blend-mode: soft-light;
+  animation: textureDrift 18s ease-in-out infinite alternate;
+  will-change: transform;
+  pointer-events: none;
+  z-index: 0;
+}
+
+@keyframes textureDrift {
+  0% {
+    background-position: 50% 50%;
+    transform: translate3d(0, 0, 0) scale(1.03);
+  }
+  50% {
+    background-position: 53% 47%;
+    transform: translate3d(-0.8%, 0.7%, 0) scale(1.04);
+  }
+  100% {
+    background-position: 47% 53%;
+    transform: translate3d(0.7%, -0.8%, 0) scale(1.03);
+  }
+}
+
+.header,
+.canvasStage,
+.controls {
+  position: relative;
+  z-index: 1;
 }
 
 .header {
@@ -14,40 +57,68 @@
   text-align: center;
 }
 
-.breadcrumb {
-  font-size: 0.75rem;
-  letter-spacing: 0.1em;
-  color: var(--ink);
+.carouselTitle {
+  display: inline-block;
+  margin: 0;
+  font-size: clamp(2.2rem, 6vw, 4.2rem);
+  line-height: 0.9;
+  transform: translateY(8%) scale(1, 1);
+  transform-origin: center top;
+  white-space: nowrap;
 }
 
 .canvasStage {
   flex: 1;
   width: 100%;
+  transform: translateY(-10%);
 }
 
 .controls {
-  padding-bottom: 60px;
+  position: absolute;
+  left: 50%;
+  bottom: 6%;
+  transform: translateX(-50%);
   display: flex;
   justify-content: center;
-  gap: 20px;
+  gap: 14px;
+  width: fit-content;
+  margin: 0;
+  padding: 10px 14px;
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.12);
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  backdrop-filter: blur(12px) saturate(140%);
+  -webkit-backdrop-filter: blur(12px) saturate(140%);
+  box-shadow:
+    0 8px 22px rgba(0, 0, 0, 0.22),
+    inset 0 1px 0 rgba(255, 255, 255, 0.24);
 }
 
 .arrowButton {
-  width: 55px;
-  height: 55px;
+  width: 50.16px;
+  height: 50.16px;
   border-radius: 50%;
-  border: 1px solid rgba(18, 10, 67, 0.2);
-  background: white;
-  color: var(--ink);
+  border: 1px solid rgba(198, 40, 40, 0.72);
+  background: rgba(255, 255, 255, 0.12);
+  color: #c62828;
   cursor: pointer;
   display: flex;
   align-items: center;
   justify-content: center;
-  transition: transform 0.2s ease;
+  font-size: 1.2rem;
+  transition: transform 0.2s ease, border-color 0.2s ease, background-color 0.2s ease, box-shadow 0.2s ease, color 0.2s ease;
 }
 
 .arrowButton:hover {
-  transform: scale(1.1);
-  background: var(--ink);
+  transform: translateY(-2px);
+  border-color: #c62828;
+  background: #c62828;
+  box-shadow: 0 8px 22px rgba(0, 0, 0, 0.25);
   color: white;
 }
+
+.arrowButton:focus-visible {
+  outline: 2px solid rgba(198, 40, 40, 0.9);
+  outline-offset: 2px;
+}
+

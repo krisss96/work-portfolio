@@ -57,7 +57,7 @@
   line-height: 0.72;
   font-weight: 500;
   letter-spacing: 0.012em;
-  transform: translateX(-50%) translateY(calc(var(--hero-title-y-offset) - 10%)) scale(1.14, 1.38);
+  transform: translateX(-50%) translateY(calc(var(--hero-title-y-offset) - 10%)) scale(1.173, 1.38);
   transform-origin: center top;
   color: rgba(112, 15, 15, 0.82);
   z-index: 5;
@@ -83,6 +83,7 @@
   color: #fff;
   font-weight: 500;
   white-space: nowrap;
+  font-family: var(--font-jaldi), Arial, Helvetica, sans-serif;
 }
 
 .hero__roles {
@@ -93,6 +94,7 @@
   color: #f1f1f1;
   font-size: clamp(1.14rem, 1.62vw, 1.55rem);
   margin-bottom: 1.35rem;
+  font-family: var(--font-jaldi), Arial, Helvetica, sans-serif;
 }
 
 .hero__cta {
@@ -107,6 +109,7 @@
   padding: 0.58rem 1.25rem;
   margin: 0.4rem auto 0;
   transition: transform 0.2s ease, opacity 0.2s ease, border-color 0.2s ease, background-color 0.2s ease, box-shadow 0.2s ease;
+  font-family: var(--font-jaldi), Arial, Helvetica, sans-serif;
 }
 
 .hero__cta:hover {
@@ -140,7 +143,7 @@
     font-size: clamp(3.2rem, 18vw, 5.8rem);
     line-height: 0.72;
     letter-spacing: 0.01em;
-    transform: translateX(-50%) translateY(calc(var(--hero-title-y-offset) - 10%)) scale(1.08, 1.22);
+    transform: translateX(-50%) translateY(calc(var(--hero-title-y-offset) - 10%)) scale(1.111, 1.22);
     transform-origin: center top;
     color: rgba(112, 15, 15, 0.82);
   }

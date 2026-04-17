@@ -1,20 +1,25 @@
 "use client";
 
 import React, { useState } from 'react';
+import { useRouter } from 'next/navigation';
 import { Canvas } from '@react-three/fiber';
 import { Text } from '@react-three/drei';
 import * as THREE from 'three';
 import type { Project } from "@/lib/projects";
 import styles from "./ProjectsCarousel.module.css";
+import contactStyles from "../contact/page.module.css";
 
 function ProjectSlot({ project, slotIndex }: {
     project: Project;
     slotIndex: number;
 }) {
+    const router = useRouter();
     // Radius of the invisible circle the cards sit on
-    const radius = 15;
+    // Increased radius to keep 30% larger cards separated on the arc
+    const radius = 22;
     // Spacing between the boxes
-    const theta = 0.35;
+    // Keep cards close while preventing overlap at larger size
+    const theta = 0.58;
 
     // The angle for this specific fixed slot
     const angle = slotIndex * theta;
@@ -23,16 +28,35 @@ function ProjectSlot({ project, slotIndex }: {
     const x = Math.sin(angle) * radius;
     const z = -Math.cos(angle) * radius;
 
+    const handleClick = () => {
+        router.push(`/projects/${project.slug}`);
+    };
+
+    const handlePointerOver = () => {
+        document.body.style.cursor = 'pointer';
+    };
+
+    const handlePointerOut = () => {
+        document.body.style.cursor = 'auto';
+    };
+
     return (
         <group position={[x, 0, z]} rotation={[0, -angle, 0]}>
-            <mesh>
-                <planeGeometry args={[4.8, 5]} />
+            <mesh
+                onClick={handleClick}
+                onPointerOver={handlePointerOver}
+                onPointerOut={handlePointerOut}
+            >
+                {/* Plane size increased by 30% */}
+                <planeGeometry args={[13, 13.95]} />
                 <meshBasicMaterial color="#222" side={THREE.DoubleSide} />
             </mesh>
             <Text
-                position={[0, -2.9, 0.1]}
-                fontSize={0.22}
-                color="#120a43"
+                /* Keep label proportionally below the larger card */
+                position={[0, -7.62, 0.1]}
+                fontSize={0.56}
+                color="#c62828"
+                fontWeight={700}
                 anchorX="center"
             >
                 {project.title.toUpperCase()}
@@ -51,12 +75,12 @@ export default function ProjectsCarousel({ projects }: { projects: Project[] }) 
     return (
         <section className={styles.section}>
             <header className={styles.header}>
-                <div className={styles.breadcrumb}>INTERACTIONS, LAYOUT, & CUSTOM CODE</div>
+                <h2 className={`${contactStyles.title} ${styles.carouselTitle}`}>My work</h2>
             </header>
 
             <div className={styles.canvasStage}>
-                {/* We move the camera further back to see the outward arch */}
-                <Canvas camera={{ position: [0, 0, 18], fov: 35 }}>
+                {/* Pull camera back slightly to comfortably frame larger cards */}
+                <Canvas camera={{ position: [0, 0, 24], fov: 35 }}>
                     <ambientLight intensity={0.5} />
 
                     {/* Shift the reversed arc closer to the camera */}
