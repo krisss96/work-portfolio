@@ -109,7 +109,7 @@
   padding: 0.58rem 1.25rem;
   margin: 0.4rem auto 0;
   transition: transform 0.2s ease, opacity 0.2s ease, border-color 0.2s ease, background-color 0.2s ease, box-shadow 0.2s ease;
-  font-family: var(--font-jaldi), Arial, Helvetica, sans-serif;
+  font-family: var(--font-it-kroxen-demo), var(--font-brandel-luchador), "Arial Narrow", "Franklin Gothic Medium", sans-serif;
 }
 
 .hero__cta:hover {

@@ -1,6 +1,7 @@
 import Link from "next/link";
 import Section from "./components/Section";
 import Hero from "./components/Hero";
+import About from "./components/About";
 import ProjectsCarousel from "./components/ProjectsCarousel";
 import { projects } from "@/lib/projects";
 import contactStyles from "./contact/page.module.css";
@@ -27,10 +28,7 @@ export default function Home() {
       </Section>
 
       <Section id="about" label="About">
-        <div className="prose max-w-3xl px-6 text-center">
-          <h2 className="text-2xl font-bold">About</h2>
-          <p className="mt-4 text-lg">A short bio and background.</p>
-        </div>
+        <About />
       </Section>
 
       <Section id="contact" label="Contact" fullWidth>

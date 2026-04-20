@@ -16,12 +16,17 @@ export type Project = {
   stack: string[];
   highlights: string[];
   whatILearned: string[];
+  aboutTheClient?: {
+    name: string;
+    label?: string;
+    description: string;
+  };
 };
 
 export const projects: Project[] = [
   {
     slug: "luxury-retail-web",
-    title: "Luxury Retail Web",
+    title: "Personal Portfolio",
     subtitle: "E-commerce redesign and conversion uplift",
     summary:
       "A premium storefront revamp focused on navigation clarity, faster checkout, and stronger mobile shopping performance.",
@@ -48,94 +53,91 @@ export const projects: Project[] = [
   },
   {
     slug: "saas-dashboard-suite",
-    title: "SaaS Dashboard Suite",
-    subtitle: "Data-heavy dashboard with modular widgets",
+    title: "StepQuest App",
+    subtitle: "Individual project",
     summary:
-      "A scalable analytics dashboard that helps teams track KPIs, collaborate in real time, and monitor business health at a glance.",
+      "StepQuest is an individual project focused on the design and development of a mobile exergame. The project objective was to create a platform that replaces sedentary phone usage with gamified physical activity for young adults who lack motivation. Built with Flutter, the app transforms the user's environment into a digital battlefield where they claim real-world territory through movement. To drive engagement, users can walk to specific points of interest to capture areas or challenge bot rivals to 'walking battles,' where the first to reach the step goal wins the territory.",
     year: "2024",
-    period: "August 2024 - December 2024",
-    role: "Frontend Architect",
+    period: "February 2026- April 2026",
+    role: "App Developer & UX Designer",
     heroImage: {
       src: "/img_2.png",
       alt: "SaaS dashboard project preview",
     },
     demoUrl: "https://example.com/saas-dashboard-demo",
-    repoUrl: "https://github.com/example/saas-dashboard-suite",
+    repoUrl: "https://github.com/krisss96/stepquest_app",
     demoVideoUrl: "https://www.youtube.com/embed/aqz-KE-bpKQ",
-    stack: ["Next.js", "React", "Recharts", "Zustand"],
-    highlights: [
-      "Built a modular widget architecture for rapid feature delivery.",
-      "Added role-based visibility and custom dashboard presets.",
-      "Cut initial load time through route-level code splitting.",
-    ],
+    stack: ["Flutter"],
+    highlights: [],
     whatILearned: [
-      "How to present dense information clearly without overwhelming the user.",
-      "How to separate reusable widgets from page-specific content.",
+      "First-Time App Development: This was my first experience developing a mobile application from start to finish. I learned how to manage the unique lifecycle of a mobile product.",
+      "Learning Flutter: As my first project using Flutter, I taught myself the framework and the Dart language.",
+      "Google Maps API Integration: I gained experience integrating the Google Maps API with device location services."
     ],
   },
   {
     slug: "creative-portfolio-platform",
-    title: "Creative Portfolio Platform",
+    title: "Photography portfolio",
     subtitle: "Multi-page portfolio templates for creators",
     summary:
-      "A template-driven portfolio platform for designers and artists, with fast setup, rich typography controls, and SEO-friendly pages.",
+      "I designed and developed this interactive portfolio to transition a collaborator’s photography from social media to a custom web experience. My goal was to create a minimalistic environment that prioritizes high-resolution visuals through an infinite-scroll layout. To make the platform sustainable, I implemented a full-stack system using Supabase, including an admin interface that allows the photographer to manage and upload her work independently.",
     year: "2026",
-    period: "January 2026 - April 2026",
-    role: "Product Designer & Frontend Developer",
+    period: "December 2025 - January 2026",
+    role: "Full-Stack Developer & UX Designer",
     heroImage: {
       src: "/img_3.png",
       alt: "Creative portfolio platform project preview",
     },
-    demoUrl: "https://example.com/creative-portfolio-demo",
-    repoUrl: "https://github.com/example/creative-portfolio-platform",
+    demoUrl: "https://nara-kupenova-photography.vercel.app/",
+    repoUrl: "https://github.com/krisss96/nara-kupenova-photography",
     demoVideoUrl: "https://www.youtube.com/embed/kXYiU_JCYtU",
-    stack: ["Next.js", "TypeScript", "CSS Modules", "Vercel"],
-    highlights: [
-      "Designed and shipped multiple premium portfolio themes.",
-      "Built an easy content model to publish project stories quickly.",
-      "Improved discoverability with structured metadata support.",
-    ],
+    stack: ["React", "Supabase", "PostgreSQL"],
+    highlights: [],
     whatILearned: [
-      "How to keep a visual system consistent while still allowing each project to feel unique.",
-      "How to design a flexible page structure that works across many project types.",
+      "SQL Database: This project was my first time bridging a React frontend with a PostgreSQL database. I learned how to structure data tables in Supabase and build an authentication-protected Admin Dashboard."
     ],
+    aboutTheClient: {
+      name: "Nara Kupenova is a hobbyist photographer, specialising in neo-street and surrealism photography, based in Varna, Bulgaria.",
+      label: "About the collaborator:",
+      description: `Problem:\nStandard social media platforms limited the photographer’s control over image quality and presentation. I needed to build a solution that removed these distractions and allowed the photography to be viewed in a high-fidelity, professional setting.`
+    }
   },
   {
     slug: "temp-interactive-landing",
-    title: "Temp Interactive Landing",
-    subtitle: "Motion-first marketing page prototype",
+    title: "Pac-xon flipboard game",
+    subtitle: "Developed for OWOW company",
     summary:
-      "A temporary concept project used to test animated sections, scroll transitions, and responsive content blocks.",
+      "I worked in a team of four to develop a playable Pac-Xon game for our client - OWOW's 84x28 pixel flip-dot matrix display. I was responsible for the UI, UX and the custom animations. My focus was creating a polished design that aligned with the client’s professional standards and creative identity.",
     year: "2026",
-    period: "April 2026",
-    role: "Frontend Developer",
+    period: "September 2025 - December 2025",
+    role: "UI/UX Designer",
     heroImage: {
       src: "/img.png",
       alt: "Temporary interactive landing project preview",
     },
     demoUrl: "https://example.com/temp-interactive-landing",
-    repoUrl: "https://github.com/example/temp-interactive-landing",
-    demoVideoUrl: "https://www.youtube.com/embed/dQw4w9WgXcQ",
-    stack: ["Next.js", "TypeScript", "CSS Modules", "Framer Motion"],
-    highlights: [
-      "Tested hero motion patterns and staggered reveal timing.",
-      "Built reusable layout blocks for rapid landing page variants.",
-      "Validated responsive spacing and typography behavior.",
-    ],
+    repoUrl: "https://github.com/Bloxmine/node-flipdots",
+    demoVideoUrl: "/belcovideo.mp4",
+    stack: ["Next.js", "Figma"],
+    highlights: [],
     whatILearned: [
-      "How to tune animation intensity without harming readability.",
-      "How to structure temporary prototypes so they can be productionized later.",
+      "Client Communication & Alignment: I gained experience in presenting my ideas to a professional agency and learning how to adapt based on their specific requirements.",
+      "Problem-Solving: I learned to align my design decisions with the client's business goals and improved my problem-solving skills by analyzing a technical limitation and developing a creative solution for it."
     ],
+    aboutTheClient: {
+      name: "",
+      description: `The Omnipresent World of Wizkids is a Dutch creative technology company that builds scalable digital products for global clients.\nProblem: The agency has a custom 84x28 pixel flip-dot matrix display that acted as dead space in their office. They needed a functional and entertaining solution to transform this hardware into an engaging tool for employees and visiting clients.`
+    },
   },
   {
     slug: "temp-component-lab",
-    title: "Temp Component Lab",
-    subtitle: "UI patterns sandbox for portfolio sections",
+    title: "Koldinghus app",
+    subtitle: "Developed for International IBA, Denmark, Inclusive by design program",
     summary:
-      "A temporary internal project for experimenting with card systems, CTA styles, and section composition before final integration.",
+      "I participated in the International Multimedia/ICT Week at IBA International Business Academy in Denmark. Working in a multicultural team, we developed an inclusive mobile concept for the Koldinghus Museum designed specifically for intergenerational groups. Our app acts as a navigator through the museum, bridging the gap between children and adults by providing a shared, immersive journey. Our concept ensures that visitors of all ages can explore the castle’s history together without barriers. The project concluded with a final presentation to a board of international teachers, for which I was awarded a formal Certificate of participation.",
     year: "2026",
-    period: "April 2026",
-    role: "UI Engineer",
+    period: "March 2026",
+    role: "Group Leader & UI/UX Designer",
     heroImage: {
       src: "/img_5.png",
       alt: "Temporary component lab project preview",
@@ -144,68 +146,146 @@ export const projects: Project[] = [
     repoUrl: "https://github.com/example/temp-component-lab",
     demoVideoUrl: "https://www.youtube.com/embed/aqz-KE-bpKQ",
     stack: ["Next.js", "React", "TypeScript", "Three.js"],
-    highlights: [
-      "Compared multiple card proportions for visual hierarchy.",
-      "Benchmarked spacing systems across desktop and mobile breakpoints.",
-      "Created a temporary token set for fast iteration.",
-    ],
+    highlights: [],
     whatILearned: [
       "How to evaluate component variants quickly with realistic content.",
       "How to keep experiments isolated while sharing a common data model.",
     ],
+    aboutTheClient: {
+      name: "Koldinghus Museum",
+      description: "Client: Koldinghus Museum, a historic 13th-century Danish royal castle and museum.\nProblem: As a complex historical site, Koldinghus faced accessibility barriers that made it difficult for diverse visitors to navigate and engage with its history. We were tasked with identifying real-world barriers within the castle and developing a solution using Inclusive Design and Generative AI that ensures all visitors, regardless of their background, can engage with the museum's history."
+    },
   },
   {
     slug: "temp-animation-studio",
-    title: "Temp Animation Studio",
-    subtitle: "Motion design prototyping workspace",
+    title: "Belco Allience website",
+    subtitle: "Developed for Belco Alliance",
     summary:
-      "A temporary project space for exploring advanced animation patterns, timing functions, and keyframe orchestration across complex UI states.",
+      "This project is a complete redesign of the official website for our client, BELCO Alliance, a European university consortium focused on international education. Working with a teammate, we developed a fully functional, modern and user-friendly website designed to serve as a digital hub for students and partners. The redesigned platform effectively communicates our client’s mission and academic offerings. By focusing on an immersive and visually appealing interface, we delivered a consistent final product that enhances BELCO’s global presence and provides a seamless experience for program exploration and engagement.",
     year: "2026",
-    period: "April 2026",
-    role: "Motion Designer",
+    period: "May-June 2025",
+    role: "Web Designer & Web Developer",
     heroImage: {
-      src: "/img_1.png",
+      src: "/belcohero.png",
       alt: "Temporary animation studio preview",
     },
-    demoUrl: "https://example.com/temp-animation-studio",
-    repoUrl: "https://github.com/example/temp-animation-studio",
-    demoVideoUrl: "https://www.youtube.com/embed/dQw4w9WgXcQ",
-    stack: ["Next.js", "Framer Motion", "TypeScript", "CSS"],
-    highlights: [
-      "Developed smooth transitions between complex application states.",
-      "Built a library of reusable animation primitives.",
-      "Tested performance optimizations for high-frequency frame updates.",
-    ],
+    demoUrl: "https://belco-alliance-ashy.vercel.app/",
+    repoUrl: "https://github.com/krisss96/BelcoAllianceWebsite",
+    demoVideoUrl: "/belcovideo.mp4",
+    stack: ["HTML", "CSS", "JavaScript"],
+    highlights: [],
     whatILearned: [
-      "How to balance motion delights with accessibility constraints.",
-      "How performant animations improve perceived app responsiveness.",
+      "Proactive Client Collaboration: Since this was my first time working with a professional organization, I learned how to actively suggest design improvements. I gained confidence in pitching ideas and justifying my technical choices to ensure they truly aligned with the stakeholder needs.",
+      "Balancing Immersion and Usability: I focused on creating a consistent visual identity and learned how to integrate immersive elements and smooth interactions while maintaining high standards of user-friendliness.",
     ],
+    aboutTheClient: {
+      name: "BELCO Alliance",
+      description: "Client: BELCO Alliance is a non-profit consortium of five leading European universities from France, Germany, the Netherlands, Finland, and Denmark. As part of a global network of 20 institutions, they promote internationalization by offering high-quality academic modules, joint research, and student exchanges to a worldwide audience.\n\nProblem:The Alliance's original platform was largely non-functional, creating a fractured user experience that failed to represent the network's prestige. Critical barriers - including incomplete functionality, significant content gaps, and complex navigation - made it difficult for visitors to engage with the consortium's offerings. These technical and design issues directly hindered BELCO's mission by preventing effective international collaboration and program discovery."
+    }
   },
   {
     slug: "temp-data-visualization",
-    title: "Temp Data Visualization",
-    subtitle: "Real-time metrics dashboard prototype",
+    title: "Virtual gallery",
+    subtitle: "Individual project",
     summary:
-      "A temporary exploration of interactive data visualization techniques, live metrics rendering, and responsive chart layouts for monitoring workflows.",
+      "This individual project is an interactive 3D gallery built to showcase a collection of Renaissance paintings. Moving away from traditional 2D layouts, I used this project to experiment with immersive web environments. The gallery features a custom-built 3D space with classical architectural elements where users can navigate freely using keyboard and mouse controls. To complete the experience, I integrated ambient music and interactive descriptions that appear as the user approaches each artwork.",
     year: "2026",
-    period: "April 2026",
-    role: "Data Visualization Engineer",
+    period: "June 2025",
+    role: "Creative Developer & Designer",
     heroImage: {
-      src: "/img_2.png",
+      src: "/hero1.png",
       alt: "Temporary data visualization preview",
     },
-    demoUrl: "https://example.com/temp-data-visualization",
-    repoUrl: "https://github.com/example/temp-data-visualization",
-    demoVideoUrl: "https://www.youtube.com/embed/kXYiU_JCYtU",
-    stack: ["Next.js", "D3.js", "TypeScript", "React"],
+    demoUrl: "https://project-x-phi-five.vercel.app/",
+    repoUrl: "https://github.com/krisss96/virtual-gallery",
+    demoVideoUrl: "/galvideo.mp4",
+    stack: ["Three.js", "JavaScript", "HTML", "CSS", "Licensed 3D Textures"],
+    highlights: [],
+    whatILearned: [
+      "Self-Taught 3D Frameworks: This was my first time working with Three.js. I taught myself how to build a 3D environment from scratch,",
+      "Multisensory UX Design: I learned how to balance visual, auditory and informational elements, making the space more interactive and informative for the user.",
+      "Performance & Visual Balance: I learned to balance high-quality 3D rendering with web performance by optimizing lighting and shadows.",
+    ],
+  },
+  {
+    slug: "kenya-scooter-app",
+    title: "Kenya Scooter App",
+    subtitle: "Urban mobility solution for Nairobi",
+    summary:
+      "A mobile app designed to streamline scooter rentals and payments in Nairobi, Kenya. The app features real-time scooter tracking, QR code unlock, and a digital wallet for seamless rides.",
+    year: "2026",
+    period: "July 2025 - September 2025",
+    role: "Mobile App Developer",
+    heroImage: {
+      src: "/img_4.png",
+      alt: "Kenya scooter app preview",
+    },
+    demoUrl: "https://example.com/kenya-scooter-app",
+    repoUrl: "https://github.com/example/kenya-scooter-app",
+    demoVideoUrl: "https://www.youtube.com/embed/kenyaScooterDemo",
+    stack: ["Flutter", "Firebase", "Google Maps API"],
     highlights: [
-      "Built dynamic, real-time chart updates without jank.",
-      "Implemented accessible color palettes for colorblind users.",
-      "Created responsive breakpoint strategies for dashboard layouts.",
+      "Integrated real-time location tracking for scooters.",
+      "Implemented secure digital wallet and payment system.",
+      "Designed for low-bandwidth environments.",
     ],
     whatILearned: [
-      "How to present dense data clearly under performance constraints.",
-      "How to choose the right visualization for each metric type.",
+      "How to build for emerging markets with unique infrastructure challenges.",
+      "How to optimize mobile UX for first-time smartphone users.",
+    ],
+  },
+  {
+    slug: "harvard-cs50-projects",
+    title: "Indv Project App",
+    subtitle: "Academic coding portfolio",
+    summary:
+      "A collection of programming assignments and final projects completed for Harvard's CS50 course, covering C, Python, SQL, and web development.",
+    year: "2025",
+    period: "January 2025 - May 2025",
+    role: "Student Developer",
+    heroImage: {
+      src: "/img_2.png",
+      alt: "Harvard CS50 projects preview",
+    },
+    demoUrl: "https://github.com/krisss96/harvard-cs50-projects",
+    repoUrl: "https://github.com/krisss96/harvard-cs50-projects",
+    demoVideoUrl: "https://www.youtube.com/embed/cs50Demo",
+    stack: ["C", "Python", "Flask", "SQLite"],
+    highlights: [
+      "Built a search engine in C.",
+      "Developed a finance web app with Flask and SQL.",
+      "Implemented data structures and algorithms from scratch.",
+    ],
+    whatILearned: [
+      "How to write efficient C code for memory management.",
+      "How to build full-stack web apps with Python and SQL.",
+    ],
+  },
+  {
+    slug: "bookstore-website",
+    title: "Bookstore Website",
+    subtitle: "E-commerce platform for independent booksellers",
+    summary:
+      "A responsive web platform for a local bookstore, featuring inventory management, online ordering, and a blog for book reviews.",
+    year: "2026",
+    period: "March 2026 - May 2026",
+    role: "Full-Stack Developer",
+    heroImage: {
+      src: "/img_1.png",
+      alt: "Bookstore website preview",
+    },
+    demoUrl: "https://example.com/bookstore-website",
+    repoUrl: "https://github.com/example/bookstore-website",
+    demoVideoUrl: "https://www.youtube.com/embed/bookstoreDemo",
+    stack: ["Next.js", "TypeScript", "PostgreSQL", "Tailwind CSS"],
+    highlights: [
+      "Built a custom admin dashboard for inventory management.",
+      "Integrated Stripe for secure payments.",
+      "Added a blog system for book reviews.",
+    ],
+    whatILearned: [
+      "How to design scalable e-commerce data models.",
+      "How to implement secure authentication and payments.",
     ],
   },
 ];
@@ -230,4 +310,3 @@ export function getProjectNavigation(slug: string) {
 
   return { previous, next };
 }
-

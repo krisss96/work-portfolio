@@ -1,0 +1,179 @@
+.container {
+  width: 100%;
+  max-width: 1000px;
+  margin: 0 auto;
+  padding: 0 2rem;
+  min-height: 70vh;
+}
+
+.tabsContainer {
+  display: flex;
+  gap: 2rem;
+  margin-bottom: 2rem;
+  margin-top: -5rem;
+  position: sticky;
+  top: 0;
+  z-index: 10;
+  background: rgba(255, 255, 255, 0.1);
+  padding: 1.5rem 2rem;
+  border-radius: 2rem;
+  width: fit-content;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.tab {
+  background: none;
+  border: none;
+  color: #ffffff;
+  font-size: 2.145rem;
+  cursor: pointer;
+  padding: 0.5rem 1rem;
+  font-family: var(--font-it-kroxen-demo), var(--font-brandel-luchador), "Arial Narrow", "Franklin Gothic Medium", sans-serif;
+  font-weight: 500;
+  position: relative;
+  transition: color 0.2s ease;
+}
+
+.tab::after {
+  content: "";
+  position: absolute;
+  bottom: -0.5rem;
+  left: 0;
+  right: 0;
+  height: 2px;
+  background: rgba(198, 40, 40, 0.8);
+  transform: scaleX(0);
+  transition: transform 0.2s ease;
+}
+
+.tab:hover {
+  color: rgba(112, 15, 15, 0.72);
+}
+
+.tab.active {
+  color: rgba(112, 15, 15, 0.72);
+  text-decoration: underline;
+  text-decoration-color: rgba(112, 15, 15, 0.72);
+  text-underline-offset: 0.5rem;
+}
+
+.contentWrapper {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 15rem;
+  align-items: start;
+  min-height: 28rem;
+}
+
+.contentWrapperNoImage {
+  grid-template-columns: 1fr;
+}
+
+.content {
+  color: rgba(255, 255, 255, 0.88);
+  line-height: 1.8;
+  font-size: 1.5rem;
+  min-height: 28rem;
+}
+
+.content p {
+  margin: 0 0 1.5rem 0;
+}
+
+.content h3 {
+  margin: 0 0 1rem 0;
+  color: rgba(112, 15, 15, 0.72);
+  font-size: 1.95rem;
+}
+
+.skillsGrid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1.5rem;
+}
+
+.skillsColumn h4 {
+  margin: 0 0 0.75rem 0;
+  font-size: 1.35rem;
+  color: rgba(112, 15, 15, 0.72);
+}
+
+.content ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.content li {
+  margin: 0.8rem 0;
+  padding-left: 1.5rem;
+  position: relative;
+}
+
+.content li::before {
+  content: "▸";
+  position: absolute;
+  left: 0;
+  color: rgba(112, 15, 15, 0.72);
+}
+
+.imageWrapper {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 1rem;
+}
+
+.imageWrapper img {
+  width: 140%;
+  max-width: 140%;
+  height: auto;
+  border-radius: 1rem;
+}
+
+.cvButton {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0.58rem 1.25rem;
+  border-radius: 999px;
+  border: 1px solid rgba(255, 255, 255, 0.72);
+  background: rgba(255, 255, 255, 0.14);
+  color: #ffffff;
+  text-decoration: none;
+  font-family: var(--font-it-kroxen-demo), var(--font-brandel-luchador), "Arial Narrow", "Franklin Gothic Medium", sans-serif;
+  font-size: clamp(1rem, 1.5vw, 1.42rem);
+  transition: transform 0.2s ease, opacity 0.2s ease, border-color 0.2s ease, background-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.cvButton:hover {
+  opacity: 0.96;
+  color: #ffffff;
+  transform: translateY(-2px);
+  border-color: #c62828;
+  background: #c62828;
+  box-shadow: 0 8px 22px rgba(0, 0, 0, 0.25);
+}
+
+@media (max-width: 768px) {
+  .tabsContainer {
+    flex-wrap: wrap;
+    gap: 1rem;
+    justify-content: center;
+  }
+
+  .contentWrapper {
+    grid-template-columns: 1fr;
+  }
+
+  .skillsGrid {
+    grid-template-columns: 1fr;
+  }
+
+  .tab {
+    font-size: 1.85rem;
+  }
+}
+

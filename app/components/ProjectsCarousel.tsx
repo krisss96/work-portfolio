@@ -3,7 +3,7 @@
 import React, { useState } from 'react';
 import { useRouter } from 'next/navigation';
 import { Canvas } from '@react-three/fiber';
-import { Text } from '@react-three/drei';
+import { Text, useTexture } from '@react-three/drei';
 import * as THREE from 'three';
 import type { Project } from "@/lib/projects";
 import styles from "./ProjectsCarousel.module.css";
@@ -14,6 +14,13 @@ function ProjectSlot({ project, slotIndex }: {
     slotIndex: number;
 }) {
     const router = useRouter();
+    const imageUrl =
+        project.slug === "temp-animation-studio"
+            ? "/mockup2.png"
+            : project.slug === "temp-data-visualization"
+                ? "/mockup1.png"
+                : project.heroImage.src;
+    const texture = useTexture(imageUrl);
     // Radius of the invisible circle the cards sit on
     // Increased radius to keep 30% larger cards separated on the arc
     const radius = 22;
@@ -49,14 +56,14 @@ function ProjectSlot({ project, slotIndex }: {
             >
                 {/* Plane size increased by 30% */}
                 <planeGeometry args={[13, 13.95]} />
-                <meshBasicMaterial color="#222" side={THREE.DoubleSide} />
+                <meshBasicMaterial map={texture} side={THREE.DoubleSide} toneMapped={false} />
             </mesh>
             <Text
                 /* Keep label proportionally below the larger card */
                 position={[0, -7.62, 0.1]}
                 fontSize={0.56}
-                color="#c62828"
-                fontWeight={700}
+                color="rgba(112, 15, 15, 0.72)"
+                fontWeight={400}
                 anchorX="center"
             >
                 {project.title.toUpperCase()}

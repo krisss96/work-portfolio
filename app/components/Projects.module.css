@@ -63,11 +63,13 @@
 
 .projectListPage {
   min-height: 100vh;
+  min-height: 100dvh;
   padding: calc(var(--nav-height) + 1.6rem) var(--page-gutter) 2rem;
   color: #fff;
   position: relative;
   isolation: isolate;
   overflow: hidden;
+  background-color: #2a2a2a;
   background:
     linear-gradient(180deg, rgba(255, 255, 255, 0.16), rgba(255, 255, 255, 0.05)),
     radial-gradient(circle at top left, rgba(100, 100, 100, 0.18), transparent 40%),
@@ -110,9 +112,14 @@
 
 .projectDetailPage {
   min-height: 100vh;
-  padding: 0 var(--page-gutter) 2rem;
+  min-height: 100dvh;
+  min-height: 100svh;
+  position: relative;
+  isolation: isolate;
+  padding: 0 var(--page-gutter) max(2rem, env(safe-area-inset-bottom));
   color: #f4efe9;
   overflow-x: clip;
+  background-color: #2a2a2a;
   background:
     linear-gradient(180deg, rgba(255, 255, 255, 0.16), rgba(255, 255, 255, 0.05)),
     radial-gradient(circle at top left, rgba(100, 100, 100, 0.18), transparent 40%),
@@ -162,8 +169,43 @@
   font-size: clamp(1.8rem, 4.2vw, 4rem);
   line-height: 0.95;
   letter-spacing: 0.02em;
-  color: #f7f0ea;
+  color: rgba(112, 15, 15, 0.82);
+  font-family: var(--font-it-kroxen-demo), var(--font-brandel-luchador), "Arial Narrow", "Franklin Gothic Medium", sans-serif;
+  font-weight: 700;
   text-shadow: 0 3px 20px rgba(0, 0, 0, 0.55);
+}
+
+.projectHeroTitleBelco {
+  font-family: var(--font-it-kroxen-demo), var(--font-brandel-luchador), "Arial Narrow", "Franklin Gothic Medium", sans-serif;
+  font-weight: 700;
+  color: rgba(112, 15, 15, 0.82);
+}
+
+.projectHeroTextWrap {
+  display: flex;
+  flex-direction: column;
+  gap: 0.35rem;
+  align-items: flex-start;
+}
+
+.projectHeroSubheaderBelco {
+  margin: 0;
+  font-size: clamp(0.9rem, 1.4vw, 1.2rem);
+  line-height: 1.15;
+  color: rgba(247, 240, 234, 0.95);
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  text-shadow: 0 3px 14px rgba(0, 0, 0, 0.65);
+}
+
+.projectHeroSubheaderVirtual {
+  margin: 0;
+  font-size: clamp(0.9rem, 1.4vw, 1.2rem);
+  line-height: 1.15;
+  color: rgba(247, 240, 234, 0.95);
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  text-shadow: 0 3px 14px rgba(0, 0, 0, 0.65);
 }
 
 .projectDetailTopbar {
@@ -199,7 +241,8 @@
   font-size: 0.72rem;
   text-transform: uppercase;
   letter-spacing: 0.14em;
-  color: rgba(244, 239, 233, 0.62);
+  color: rgba(112, 15, 15, 0.72);
+  font-weight: 700;
 }
 
 .projectDetailPeriodValue {
@@ -273,15 +316,29 @@
 }
 
 .projectActionSecondary {
-  background: #e8e7e4;
-  color: #171015;
-  border: 1px solid rgba(23, 16, 21, 0.08);
+  background: #c62828;
+  color: #ffffff;
+  border: 1px solid rgba(198, 40, 40, 0.85);
 }
 
 .projectActionPrimary:hover,
 .projectActionSecondary:hover {
   transform: translateY(-2px);
   border-color: rgba(255, 255, 255, 0.24);
+}
+
+.projectActionPrimary:hover {
+  background: #1a1a1e;
+  color: #ffffff;
+  border-color: rgba(255, 255, 255, 0.36);
+  box-shadow: 0 10px 24px rgba(0, 0, 0, 0.28);
+}
+
+.projectActionSecondary:hover {
+  background: #a61f1f;
+  color: #ffffff;
+  border-color: rgba(198, 40, 40, 1);
+  box-shadow: 0 10px 24px rgba(166, 31, 31, 0.38);
 }
 
 .projectInfoColumn {
@@ -321,14 +378,15 @@
 .projectInfoCard h2 {
   margin: 0 0 0.8rem;
   padding-bottom: 0.55rem;
-  border-bottom: 1px solid rgba(255, 255, 255, 0.18);
+  border-bottom: 1px solid rgba(112, 15, 15, 0.35);
   font-size: clamp(1rem, 1.8vw, 1.15rem);
-  font-weight: 500;
+  font-weight: 700;
   font-family: Arial, Helvetica, sans-serif;
   letter-spacing: 0.04em;
   text-transform: uppercase;
-  color: rgba(244, 239, 233, 0.9);
+  color: rgba(112, 15, 15, 0.72);
 }
+
 
 .projectInfoCard p {
   margin: 0;
@@ -336,6 +394,14 @@
   font-size: clamp(0.98rem, 1.45vw, 1.08rem);
   line-height: 1.6;
   color: rgba(244, 239, 233, 0.88);
+}
+
+.projectLabelEmphasis {
+  color: rgba(112, 15, 15, 0.82);
+  font-weight: 700;
+  font-size: 1.08em;
+  text-decoration: underline;
+  text-underline-offset: 0.16em;
 }
 
 .projectTechList {
