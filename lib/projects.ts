@@ -27,12 +27,12 @@ export const projects: Project[] = [
   {
     slug: "luxury-retail-web",
     title: "Personal Portfolio",
-    subtitle: "E-commerce redesign and conversion uplift",
+    subtitle: "Individual project for university",
     summary:
-      "A premium storefront revamp focused on navigation clarity, faster checkout, and stronger mobile shopping performance.",
+      "This platform was developed to showcase my university work and academic identity through the Semester. My goal was to present my skills in an easy-to-navigate environment and I aimed to create a balance between a minimalistic, clean design and creative interactive elements that reflect my personality as a designer and developer.",
     year: "2025",
-    period: "March 2025 - June 2025",
-    role: "Lead Web Developer & UI/UX Designer",
+    period: "March 2025 - April 2025",
+    role: "Web Developer & UI/UX Designer",
     heroImage: {
       src: "/img_1.png",
       alt: "Luxury retail project preview",
@@ -40,15 +40,10 @@ export const projects: Project[] = [
     demoUrl: "https://example.com/luxury-retail-demo",
     repoUrl: "https://github.com/example/luxury-retail-web",
     demoVideoUrl: "https://www.youtube.com/embed/jNQXAC9IVRw",
-    stack: ["Next.js", "TypeScript", "Tailwind CSS", "Stripe"],
-    highlights: [
-      "Redesigned core shopping flow and reduced checkout drop-off.",
-      "Improved mobile performance with image and route optimizations.",
-      "Introduced reusable design system blocks for faster launch cycles.",
-    ],
+    stack: ["HTML", "JavaScript", "CSS"],
+    highlights: [],
     whatILearned: [
-      "How to balance premium branding with a fast, conversion-friendly experience.",
-      "How to structure reusable UI sections for a bigger product catalog.",
+      "Interactive Design & Animation: I experimented with JavaScript and CSS transitions to add a layer of interactivity."
     ],
   },
   {
@@ -145,14 +140,16 @@ export const projects: Project[] = [
     demoUrl: "https://example.com/temp-component-lab",
     repoUrl: "https://github.com/example/temp-component-lab",
     demoVideoUrl: "https://www.youtube.com/embed/aqz-KE-bpKQ",
-    stack: ["Next.js", "React", "TypeScript", "Three.js"],
+    stack: ["Figma"],
     highlights: [],
     whatILearned: [
-      "How to evaluate component variants quickly with realistic content.",
-      "How to keep experiments isolated while sharing a common data model.",
+      "Strategic Problem-Solving:  improved my communication skills by gaining hands-on experience co-working with a team from diverse backgrounds and different skillsets. This taught me how to collaborate effectively with people I didn't know.",
+      "Intercultural Communication: Working with a diverse, international team taught me to bridge communication gaps and integrate different mindsets into a single, cohesive concept.",
+      "Time Management Under Pressure: The strict one-week deadline forced me to improve my ability to prioritize essential tasks and keep the team organized.",
+      "Strategic Problem-Solving: I learned to design solutions for a highly diverse target group."
     ],
     aboutTheClient: {
-      name: "Koldinghus Museum",
+      name: "",
       description: "Client: Koldinghus Museum, a historic 13th-century Danish royal castle and museum.\nProblem: As a complex historical site, Koldinghus faced accessibility barriers that made it difficult for diverse visitors to navigate and engage with its history. We were tasked with identifying real-world barriers within the castle and developing a solution using Inclusive Design and Generative AI that ensures all visitors, regardless of their background, can engage with the museum's history."
     },
   },
