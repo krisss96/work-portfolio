@@ -1,11 +1,11 @@
 import React from "react";
 import styles from "./Hero.module.css";
 import Image from "next/image";
-import { Anton } from "next/font/google";
+import localFont from "next/font/local";
 
-const anton = Anton({
-  subsets: ["latin"],
-  weight: "400",
+const fasdeco = localFont({
+  src: "../../public/Fasdeco.otf",
+  display: "swap",
 });
 
 export default function Hero() {
@@ -13,8 +13,8 @@ export default function Hero() {
     <div className={styles.hero}>
       <div className={styles.hero__bg} aria-hidden />
 
-      <div className={styles["hero__title-giant"]} style={{ fontFamily: anton.style.fontFamily }}>
-        PORTFOLIO
+      <div className={styles["hero__title-giant"]} style={{ fontFamily: fasdeco.style.fontFamily }}>
+        portfolio
       </div>
 
       <div className={styles.hero__content}>

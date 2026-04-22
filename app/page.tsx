@@ -1,3 +1,4 @@
+
 import Link from "next/link";
 import Section from "./components/Section";
 import Hero from "./components/Hero";
@@ -8,12 +9,15 @@ import contactStyles from "./contact/page.module.css";
 import ContactIcon from "./contact/ContactIcon";
 import ContactForm from "./contact/ContactForm";
 import { getContactLinks } from "./contact/contactData";
+import Background from "./components/Background";
 
 export default function Home() {
   const contactLinks = getContactLinks();
 
   return (
-    <div className="snap-container h-full w-full">
+    <>
+      <Background />
+      <div className="main-page snap-container h-full w-full" style={{ position: 'relative', zIndex: 0 }}>
       <Section id="main" label="Home" role="main" fullWidth>
         <Hero />
       </Section>
@@ -77,6 +81,7 @@ export default function Home() {
           </div>
         </div>
       </Section>
-    </div>
+      </div>
+    </>
   );
 }

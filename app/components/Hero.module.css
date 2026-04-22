@@ -13,14 +13,14 @@
   position: absolute;
   inset: 0;
   z-index: 0;
-  background-image:
-    linear-gradient(rgba(0, 0, 0, 0.45), rgba(0, 0, 0, 0.45)),
-    url("/img_1.png");
-  background-size: cover;
-  background-position: center;
-  background-repeat: no-repeat;
+  /* Background image and gradient removed for animated circles background */
+  background: none !important;
+  background-image: none !important;
+  background-size: initial !important;
+  background-position: initial !important;
+  background-repeat: initial !important;
   transform: translateZ(0);
-  animation: motionBlur 8s ease-in-out infinite;
+  animation: none !important;
 }
 
 @keyframes motionBlur {
@@ -141,11 +141,11 @@
     right: auto;
     top: clamp(5.2rem, 14vh, 7.2rem);
     font-size: clamp(3.2rem, 18vw, 5.8rem);
-    line-height: 0.72;
+    line-height: 0.102;
     letter-spacing: 0.01em;
     transform: translateX(-50%) translateY(calc(var(--hero-title-y-offset) - 10%)) scale(1.111, 1.22);
     transform-origin: center top;
-    color: rgba(112, 15, 15, 0.82);
+    color: rgb(11 6 6);
   }
 
   .hero__content {

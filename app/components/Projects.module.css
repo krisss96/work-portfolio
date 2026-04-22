@@ -112,13 +112,12 @@
 
 .projectDetailPage {
   min-height: 100vh;
-  min-height: 100dvh;
-  min-height: 100svh;
+  flex: 1 0 auto;
   position: relative;
   isolation: isolate;
   padding: 0 var(--page-gutter) max(2rem, env(safe-area-inset-bottom));
   color: #f4efe9;
-  overflow-x: clip;
+  overflow: visible;
   background-color: #2a2a2a;
   background:
     linear-gradient(180deg, rgba(255, 255, 255, 0.16), rgba(255, 255, 255, 0.05)),
@@ -342,14 +341,13 @@
 }
 
 .projectInfoColumn {
-  display: grid;
-  gap: 0.95rem;
-  max-height: min(68vh, 42rem);
-  overflow-y: auto;
-  padding-right: 0.35rem;
-  scrollbar-width: thin;
-  scrollbar-color: rgba(242, 196, 210, 0.72) rgba(255, 255, 255, 0.08);
-}
+    display: grid;
+    gap: 0.95rem;
+    padding-right: 0.35rem;
+    /* Removed max-height and overflow-y to allow full content height */
+    scrollbar-width: thin;
+    scrollbar-color: rgba(242, 196, 210, 0.72) rgba(255, 255, 255, 0.08);
+  }
 
 .projectInfoColumn::-webkit-scrollbar {
   width: 10px;

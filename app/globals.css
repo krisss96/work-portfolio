@@ -103,6 +103,7 @@ body {
   -webkit-overflow-scrolling: touch;
 }
 
+
 /* Sticky stacked sections: each next section covers the previous one */
 .snap-section {
   position: sticky;
@@ -114,32 +115,11 @@ body {
   justify-content: center;
   box-sizing: border-box;
   padding: 2rem 0;
-  background:
-    linear-gradient(180deg, rgba(255, 255, 255, 0.16), rgba(255, 255, 255, 0.05)),
-    radial-gradient(circle at top left, rgba(100, 100, 100, 0.18), transparent 40%),
-    radial-gradient(circle at bottom right, rgba(80, 80, 80, 0.16), transparent 36%),
-    linear-gradient(180deg, #3a3a3a 0%, #323232 55%, #2a2a2a 100%);
   position: relative;
   isolation: isolate;
   z-index: 1;
   box-shadow: none;
   overflow: hidden;
-}
-
-.snap-section::before {
-  content: "";
-  position: absolute;
-  inset: 0;
-  background-image: url("/b928b1b4-7b1d-43ba-a9b5-c30bd5d01487.jpg");
-  background-size: 112% 112%;
-  background-position: 50% 50%;
-  background-repeat: no-repeat;
-  opacity: 0.18;
-  mix-blend-mode: soft-light;
-  animation: textureDrift 18s ease-in-out infinite alternate;
-  will-change: transform;
-  pointer-events: none;
-  z-index: 0;
 }
 
 .section-inner {
@@ -153,6 +133,20 @@ body {
   justify-content: stretch;
   background: transparent;
   box-shadow: none;
+}
+
+/* Remove background and ::before image for main page only (stronger specificity) */
+.main-page .snap-section,
+.main-page .snap-section--full {
+  background: none !important;
+}
+.main-page .snap-section::before,
+.main-page .snap-section--full::before {
+  content: none !important;
+  display: none !important;
+  background: none !important;
+  background-image: none !important;
+  opacity: 0 !important;
 }
 
 .section-inner {
