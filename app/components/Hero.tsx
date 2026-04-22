@@ -18,7 +18,7 @@ export default function Hero() {
       </div>
 
       <div className={styles.hero__content}>
-        <h1 className={styles.hero__name}>Kristiyana Petrova</h1>
+        <h1 className={styles.hero__name}style={{ fontFamily: fasdeco.style.fontFamily }}>Kristiyana Petrova</h1>
         <div className={styles.hero__roles}>
           <div>Web Developer</div>
           <div>UI/UX Designer</div>

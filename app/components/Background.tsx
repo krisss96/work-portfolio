@@ -7,6 +7,7 @@ const Background = () => (
     <div className={`${styles.circle} ${styles.circle2}`}></div>
     <div className={`${styles.circle} ${styles.circle3}`}></div>
     <div className={`${styles.circle} ${styles.circle4}`}></div>
+      <div className={`${styles.circle} ${styles.circle5}`}></div>
   </div>
 );
 
