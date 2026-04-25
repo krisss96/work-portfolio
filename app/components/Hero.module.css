@@ -13,12 +13,10 @@
   position: absolute;
   inset: 0;
   z-index: 0;
-  /* Background image and gradient removed for animated circles background */
-  background: none !important;
-  background-image: none !important;
-  background-size: initial !important;
-  background-position: initial !important;
-  background-repeat: initial !important;
+  /* Background image for hero section */
+  background: url('/6566733.jpg') center center/cover no-repeat;
+  opacity: 0.18;
+  z-index: 0;
   transform: translateZ(0);
   animation: none !important;
 }
@@ -59,11 +57,12 @@
   letter-spacing: 0.012em;
   transform: translateX(-50%) translateY(calc(var(--hero-title-y-offset) - 10%)) scale(1.173, 1.38);
   transform-origin: center top;
-  color: rgba(112, 15, 15, 0.82);
+  color: rgb(32 28 28 / 0.82);
   z-index: 5;
   pointer-events: none;
   white-space: nowrap;
   text-align: center;
+
 }
 
 .hero__content {

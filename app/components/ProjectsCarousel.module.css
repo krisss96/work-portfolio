@@ -80,7 +80,7 @@
   transform: translateX(-50%);
   display: flex;
   justify-content: center;
-  gap: 14px;
+  gap: 48px;
   width: fit-content;
   margin: 0;
   padding: 10px 14px;
@@ -121,4 +121,3 @@
   outline: 2px solid rgba(198, 40, 40, 0.9);
   outline-offset: 2px;
 }
-

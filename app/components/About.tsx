@@ -78,31 +78,40 @@ export default function About() {
   };
 
   return (
-    <div className={styles.container}>
-      <div className={styles.tabsContainer}>
-        {tabs.map((tab) => (
-          <button
-            key={tab.id}
-            className={`${styles.tab} ${activeTab === tab.id ? styles.active : ""}`}
-            onClick={() => setActiveTab(tab.id)}
-          >
-            {tab.label}
-          </button>
-        ))}
-      </div>
-
-      <div className={`${styles.contentWrapper} ${isSkillsTab ? styles.contentWrapperNoImage : ""}`}>
-        <div className={styles.content}>
-          {content[activeTab as keyof typeof content]}
+    <div style={{ position: "relative" }}>
+      <div className={styles.backgroundTexture} aria-hidden="true" />
+      <div className={styles.container}>
+        <div className={styles.tabsContainer}>
+          {tabs.map((tab) => (
+            <button
+              key={tab.id}
+              className={`${styles.tab} ${
+                activeTab === tab.id ? styles.active : ""
+              }`}
+              onClick={() => setActiveTab(tab.id)}
+            >
+              {tab.label}
+            </button>
+          ))}
         </div>
-        {!isSkillsTab && (
-          <div className={styles.imageWrapper}>
-            <img src="/Group 433.png" alt="Profile" />
-            <a href="/cv.pdf" className={styles.cvButton} download>
-              Download CV
-            </a>
+
+        <div
+          className={`${styles.contentWrapper} ${
+            isSkillsTab ? styles.contentWrapperNoImage : ""
+          }`}
+        >
+          <div className={styles.content}>
+            {content[activeTab as keyof typeof content]}
           </div>
-        )}
+          {!isSkillsTab && (
+            <div className={styles.imageWrapper}>
+              <img src="/Group 433.png" alt="Profile" />
+              <a href="/cv.pdf" className={styles.cvButton} download>
+                Download CV
+              </a>
+            </div>
+          )}
+        </div>
       </div>
     </div>
   );

@@ -49,17 +49,16 @@ export default function RootLayout({
 }: Readonly<{
   children: React.ReactNode;
 }>) {
-  return (
-    <html
-      lang="en"
-      className={`${geistSans.variable} ${geistMono.variable} ${geologica.variable} ${brandelLuchador.variable} ${itKroxenDemo.variable} h-full antialiased`}
-      className={`${geistSans.variable} ${geistMono.variable} ${geologica.variable} ${brandelLuchador.variable} ${itKroxenDemo.variable} ${jaldi.variable} h-full antialiased`}
-    >
-      <body className="min-h-full flex flex-col" suppressHydrationWarning>
-        <SkipLink />
-        <Nav />
-        {children}
-      </body>
-    </html>
-  );
+   return (
+     <html
+       lang="en"
+       className={`${geistSans.variable} ${geistMono.variable} ${geologica.variable} ${brandelLuchador.variable} ${itKroxenDemo.variable} ${jaldi.variable} h-full antialiased`}
+     >
+       <body className="min-h-full flex flex-col" suppressHydrationWarning>
+         <SkipLink />
+         <Nav />
+         {children}
+       </body>
+     </html>
+   );
 }
