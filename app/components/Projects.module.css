@@ -168,7 +168,7 @@
   font-size: clamp(1.8rem, 4.2vw, 4rem);
   line-height: 0.95;
   letter-spacing: 0.02em;
-  color: rgba(112, 15, 15, 0.82);
+  color: rgb(89 3 33 / 0.96);
   font-family: var(--font-it-kroxen-demo), var(--font-brandel-luchador), "Arial Narrow", "Franklin Gothic Medium", sans-serif;
   font-weight: 700;
   text-shadow: 0 3px 20px rgba(0, 0, 0, 0.55);
@@ -177,7 +177,7 @@
 .projectHeroTitleBelco {
   font-family: var(--font-it-kroxen-demo), var(--font-brandel-luchador), "Arial Narrow", "Franklin Gothic Medium", sans-serif;
   font-weight: 700;
-  color: rgba(112, 15, 15, 0.82);
+  color: rgb(89 3 33 / 0.96);
 }
 
 .projectHeroTextWrap {
@@ -240,7 +240,7 @@
   font-size: 0.72rem;
   text-transform: uppercase;
   letter-spacing: 0.14em;
-  color: rgba(112, 15, 15, 0.72);
+  color: rgb(89 3 33 / 0.96);
   font-weight: 700;
 }
 

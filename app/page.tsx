@@ -11,6 +11,7 @@ import ContactForm from "./contact/ContactForm";
 import { getContactLinks } from "./contact/contactData";
 import Background from "./components/Background";
 
+
 export default function Home() {
   const contactLinks = getContactLinks();
 

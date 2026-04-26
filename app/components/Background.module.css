@@ -21,7 +21,7 @@
 .circle1 {
     width: 500px;
     height: 500px;
-    background: rgb(89 3 33 / 0.96);
+    background: rgba(112, 15, 15, 0.72);
     top: 10%;
     left: 5%;
     animation-delay: 0s;
@@ -39,7 +39,7 @@
 .circle3 {
     width: 300px;
     height: 300px;
-    background: #6a070f;
+    background: rgba(112, 15, 15, 0.72);
     top: 30%;
     left: 70%;
     animation-delay: 2s;
