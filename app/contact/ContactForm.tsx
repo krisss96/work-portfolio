@@ -48,7 +48,7 @@ export default function ContactForm() {
 
       if (response.ok) {
         setMessage({ type: "success", text: "Message sent successfully! I'll get back to you soon." });
-        event.currentTarget.reset();
+        (event.currentTarget as HTMLFormElement).reset();
       } else {
         setMessage({ type: "error", text: responseData.error || "Failed to send message. Please try again." });
       }
