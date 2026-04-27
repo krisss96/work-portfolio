@@ -4,6 +4,10 @@ import type { FormEvent } from "react";
 import { useState } from "react";
 import styles from "./page.module.css";
 
+function isValidEmail(value: string) {
+  return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(value);
+}
+
 export default function ContactForm() {
   const [isLoading, setIsLoading] = useState(false);
   const [message, setMessage] = useState<{ type: "success" | "error"; text: string } | null>(null);
@@ -15,11 +19,23 @@ export default function ContactForm() {
 
     const formData = new FormData(event.currentTarget);
     const data = {
-      name: formData.get("name"),
-      email: formData.get("email"),
-      subject: formData.get("subject"),
-      message: formData.get("message"),
+      name: String(formData.get("name") ?? "").trim(),
+      email: String(formData.get("email") ?? "").trim(),
+      subject: String(formData.get("subject") ?? "").trim(),
+      message: String(formData.get("message") ?? "").trim(),
     };
+
+    if (!data.name || !data.email || !data.subject || !data.message) {
+      setMessage({ type: "error", text: "Please fill in all fields." });
+      setIsLoading(false);
+      return;
+    }
+
+    if (!isValidEmail(data.email)) {
+      setMessage({ type: "error", text: "Please enter a valid email address." });
+      setIsLoading(false);
+      return;
+    }
 
     try {
       const response = await fetch("/api/contact", {
@@ -28,12 +44,13 @@ export default function ContactForm() {
         body: JSON.stringify(data),
       });
 
+      const responseData = await response.json().catch(() => ({}));
+
       if (response.ok) {
         setMessage({ type: "success", text: "Message sent successfully! I'll get back to you soon." });
         event.currentTarget.reset();
       } else {
-        const errorData = await response.json();
-        setMessage({ type: "error", text: errorData.error || "Failed to send message. Please try again." });
+        setMessage({ type: "error", text: responseData.error || "Failed to send message. Please try again." });
       }
     } catch (error) {
       setMessage({ type: "error", text: "An error occurred. Please try again later." });
@@ -48,18 +65,18 @@ export default function ContactForm() {
       <div className={styles.formRow}>
         <label className={styles.field}>
           <span>Name</span>
-          <input type="text" name="name" placeholder="Your name" autoComplete="name" />
+          <input type="text" name="name" placeholder="Your name" autoComplete="name" required />
         </label>
 
         <label className={styles.field}>
           <span>Email</span>
-          <input type="email" name="email" placeholder="your@email.com" autoComplete="email" />
+          <input type="email" name="email" placeholder="your@email.com" autoComplete="email" required />
         </label>
       </div>
 
       <label className={styles.field}>
         <span>Subject</span>
-        <input type="text" name="subject" placeholder="What would you like to talk about?" />
+        <input type="text" name="subject" placeholder="What would you like to talk about?" required />
       </label>
 
       <label className={styles.field}>
@@ -68,10 +85,11 @@ export default function ContactForm() {
           name="message"
           placeholder="Write your message here..."
           rows={4}
+          required
         />
       </label>
 
-      <button type="submit" className={styles.submitButton}>
+      <button type="submit" className={styles.submitButton} disabled={isLoading}>
         {isLoading ? "Sending..." : "Send message"}
       </button>
       {message && (
@@ -89,4 +107,3 @@ export default function ContactForm() {
     </form>
   );
 }
-

@@ -49,7 +49,8 @@
     font-size: 7rem;
     margin: 0 0 1rem 0;
     margin-top: 2rem;
-    color: rgb(32 28 28 / 0.82);
+    color: rgba(112, 15, 15, 0.72);
+    -webkit-text-stroke: 1.2px rgb(32 28 28 / 0.82);
     font-weight: 500;
     white-space: nowrap;
 }
@@ -60,9 +61,9 @@
     justify-content: flex-start;
     flex-wrap: wrap;
     width: 100%;
-    gap: clamp(1rem, 2vw, 2rem);
-    color: rgb(32 28 28 / 0.82);
-    font-size: 2rem;
+    gap: clamp(10rem, 2vw, 2rem);
+    color: rgba(255, 255, 255, 0.72);
+    font-size: 2.5rem;
 }
 
 
@@ -80,7 +81,7 @@
     display: inline-flex;
     flex-direction: column;
     align-items: center;
-    color: #fff;
+    color:rgba(255, 255, 255, 0.72);
     text-decoration: none;
     font-size: 2.2rem;
     border: 1px solid rgba(255, 255, 255, 0.72);

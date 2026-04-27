@@ -41,10 +41,9 @@ export default function About() {
     about: (
       <div className={styles.glassCard}>
         <p>
-          I&apos;m a passionate web developer and UI/UX designer with a focus on
-          creating beautiful, functional digital experiences. With expertise in
-          modern web technologies and design principles, I bring ideas to life
-          through clean code and thoughtful design.
+            Hello, my name is Kristiyana Petrova, a 20-year-old from Varna, Bulgaria, currently studying my second year at Fontys University of Applied Sciences in Eindhoven.
+            I’ve always been drawn to creative work and art, which is what led me to study ICT & Media Design. As a junior in this field, I’m focused on trying out new things and improving my skills.I genuinely enjoy the learning process and I am always looking for ways to improve with every project I do.
+            I am also very communicative and love being part of a team where we can collaborate and be creative together.
         </p>
       </div>
     ),
@@ -95,9 +94,9 @@ export default function About() {
           <div className={styles.skillsColumn}>
             <h4>Technical Skills:</h4>
             <ul>
-              <li>Frontend: React, Next.js,Flutter,JavaScript, Three.js, CSS, HTML</li>
-                <li>Backend: Spring(Java), Node.js</li>
-              <li>Databases:SQL</li>
+              <li>Frontend: React, Next.js, Flutter, JavaScript, Three.js, CSS, HTML</li>
+                <li>Backend: Java(Spring Boot), Node.js</li>
+              <li>Databases: SQL</li>
               <li>Design: Figma</li>
               <li>Tools: Git</li>
             </ul>
@@ -105,10 +104,10 @@ export default function About() {
           <div className={styles.skillsColumn}>
             <h4>Soft Skills:</h4>
             <ul>
-              <li>Communication and teamwork</li>
+              <li>Communication & teamwork</li>
                 <li>Adaptability</li>
-              <li>Problem solving and critical thinking</li>
-              <li>Time management and organization</li>
+              <li>Problem solving & critical thinking</li>
+              <li>Time management & organization</li>
 
             </ul>
           </div>
@@ -118,7 +117,7 @@ export default function About() {
   };
 
   return (
-    <section className={styles.aboutSection}>
+    <section className={`${styles.aboutSection} no-snap`}>
       <div className={styles.container}>
         <div className={styles.tabsContainer}>
           {tabs.map((tab) => (
@@ -145,7 +144,7 @@ export default function About() {
           {!isSkillsTab && !isEducationTab && !isCertificatesTab && (
             <div className={styles.imageWrapper}>
               <img src="/Group 433.png" alt="Profile" />
-              <a href="/cv.pdf" className={styles.cvButton} download>
+              <a href="/KRISTIYANA-PETROVA-Resume.pdf (1).pdf" className={styles.cvButton} download>
                 Download CV
               </a>
             </div>

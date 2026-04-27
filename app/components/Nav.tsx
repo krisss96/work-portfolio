@@ -3,51 +3,54 @@ import React from "react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 
-const sections = [
-	{ href: "/", id: "main", label: "KP" },
-	{ href: "/projects", id: "projects", label: "PROJECTS" },
-	{ href: "/#about", id: "about", label: "ABOUT ME" },
-	{ href: "/#contact", id: "contact", label: "CONTACT ME" },
+const navLinks = [
+    { href: "/projects", id: "projects", label: "MY WORK" },
+    { href: "/#about", id: "about", label: "ABOUT ME" },
+    { href: "/#contact", id: "contact", label: "CONTACT ME" },
 ];
 
-function prefersReducedMotion() {
-	try {
-		return window.matchMedia("(prefers-reduced-motion: reduce)").matches;
-	} catch {
-		return false;
-	}
-}
-
 export default function Nav() {
-	const pathname = usePathname();
+    const pathname = usePathname();
 
-	const handleClick = (e: React.MouseEvent, id: string) => {
-		e.preventDefault();
-		const el = document.getElementById(id);
-		if (!el) return;
-		const behavior = prefersReducedMotion() ? "auto" : "smooth";
-		el.scrollIntoView({ behavior, block: "start" });
-		(el as HTMLElement).focus();
-	};
+    const handleClick = (e: React.MouseEvent, id: string) => {
+        const el = document.getElementById(id);
+        if (!el) return;
+        e.preventDefault();
+        el.scrollIntoView({ behavior: "smooth", block: "start" });
+    };
 
-	return (
-		<header className="top-nav" role="banner">
-			<nav aria-label="Primary navigation" className="top-nav__inner">
-				{sections.map((s, i) => (
-					<Link
-						key={s.id}
-						href={s.href}
-						onClick={(e) => {
-							if (pathname === "/" && s.id && s.href.startsWith("/#")) {
-								handleClick(e, s.id);
-							}
-						}}
-						className={`top-nav__link ${i === 0 ? "top-nav__logo" : ""}`}
-					>
-						{s.label}
-					</Link>
-				))}
-			</nav>
-		</header>
-	);
+    return (
+        <header className="top-nav" role="banner">
+            <nav aria-label="Primary navigation" className="top-nav__inner">
+                <Link
+                    href="/"
+                    className="top-nav__link top-nav__logo"
+                    onClick={(e) => {
+                        if (pathname === "/") {
+                            handleClick(e, "main");
+                        }
+                    }}
+                >
+                    KP
+                </Link>
+
+                <div className="top-nav__links-container">
+                    {navLinks.map((link) => (
+                        <Link
+                            key={link.id}
+                            href={link.href}
+                            onClick={(e) => {
+                                if (pathname === "/" && link.id && link.href.startsWith("/#")) {
+                                    handleClick(e, link.id);
+                                }
+                            }}
+                            className="top-nav__link"
+                        >
+                            {link.label}
+                        </Link>
+                    ))}
+                </div>
+            </nav>
+        </header>
+    );
 }

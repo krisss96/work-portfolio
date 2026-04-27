@@ -23,13 +23,12 @@ export default function Hero() {
                 <h1 className={styles.hero__name} style={{ fontFamily: brandel.style.fontFamily }}>
                     Kristiyana Petrova
                 </h1>
-                <div className={styles.hero__roles}>
+                <div className={styles.hero__roles} style={{ fontFamily: brandel.style.fontFamily }}>
                     <div>Web Developer</div>
                     <div>UI/UX Designer</div>
                 </div>
             </div>
 
-            {/* Centered Button Container - Separate from hero__content */}
             <div className={styles.hero__ctaContainer}>
                 <a href="#projects" className={styles.hero__cta}>
                     EXPLORE MY WORK

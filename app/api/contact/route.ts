@@ -1,21 +1,51 @@
 import { NextRequest, NextResponse } from 'next/server';
 import nodemailer from 'nodemailer';
 
+const DEFAULT_TO_EMAIL = 'chrissi090605@gmail.com';
+
 function isPlaceholder(value: string) {
   const lower = value.toLowerCase();
   return lower.includes('your-gmail') || lower.includes('your-app-password');
 }
 
+function sanitizeInput(value: unknown) {
+  return typeof value === 'string' ? value.trim() : '';
+}
+
+function isValidEmail(value: string) {
+  return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(value);
+}
+
 export async function POST(request: NextRequest) {
   try {
-    const { name, email, subject, message } = await request.json();
+    const body = await request.json();
+    const name = sanitizeInput(body?.name);
+    const email = sanitizeInput(body?.email);
+    const subject = sanitizeInput(body?.subject);
+    const message = sanitizeInput(body?.message);
+
     const emailFrom = process.env.EMAIL_FROM;
     const emailPassword = process.env.EMAIL_PASSWORD;
+    const recipientEmail = sanitizeInput(process.env.CONTACT_TO_EMAIL) || DEFAULT_TO_EMAIL;
 
     // Validate required fields
     if (!name || !email || !subject || !message) {
       return NextResponse.json(
-        { error: 'All fields are required' },
+        { error: 'All fields are required.' },
+        { status: 400 }
+      );
+    }
+
+    if (!isValidEmail(email)) {
+      return NextResponse.json(
+        { error: 'Please provide a valid email address.' },
+        { status: 400 }
+      );
+    }
+
+    if (name.length > 120 || subject.length > 180 || message.length > 5000) {
+      return NextResponse.json(
+        { error: 'Your message is too long. Please shorten it and try again.' },
         { status: 400 }
       );
     }
@@ -47,8 +77,9 @@ export async function POST(request: NextRequest) {
     // Send email to yourself
     await transporter.sendMail({
       from: emailFrom,
-      to: 'chrissi090605@gmail.com',
+      to: recipientEmail,
       subject: `New Contact Form Submission: ${subject}`,
+      text: `From: ${name} (${email})\n\nSubject: ${subject}\n\nMessage:\n${message}`,
       html: `
         <h2>New Contact Form Submission</h2>
         <p><strong>From:</strong> ${name} (${email})</p>
@@ -60,7 +91,7 @@ export async function POST(request: NextRequest) {
     });
 
     return NextResponse.json(
-      { success: true, message: 'Email sent successfully' },
+      { success: true, message: 'Email sent successfully.' },
       { status: 200 }
     );
   } catch (error) {
@@ -80,4 +111,3 @@ export async function POST(request: NextRequest) {
     );
   }
 }
-

@@ -12,15 +12,15 @@ export function getContactLinks(): ContactLink[] {
   return [
     {
       label: "LinkedIn",
-      href: "https://www.linkedin.com/",
-      value: "linkedin.com/in/your-profile",
+      href: "https://www.linkedin.com/in/kristiyana-petrova-399a903a6/",
+      value: "Kristiyana Petrova",
       icon: "linkedin",
       external: true,
     },
     {
       label: "Gmail",
-      href: "mailto:chrisssi090605@gmail.com",
-      value: "chrisssi090605@gmail.com",
+      href: "mailto:chrissi090605@gmail.com",
+      value: "chrissi090605@gmail.com",
       icon: "email",
     },
     {
@@ -29,13 +29,7 @@ export function getContactLinks(): ContactLink[] {
       value: "+359 87841 6610",
       icon: "phone",
     },
-    {
-      label: "Instagram",
-      href: "https://www.instagram.com/",
-      value: "@your.instagram",
-      icon: "instagram",
-      external: true,
-    },
+
   ];
 }
 
