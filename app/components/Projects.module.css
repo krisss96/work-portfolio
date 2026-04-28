@@ -46,11 +46,12 @@
   font-size: clamp(1.02rem, 1.7vw, 1.24rem);
   margin: 0;
   color: #ffffff;
+  font-family: var(--font-brandel-luchador), "Arial Narrow", "Franklin Gothic Medium", Arial, sans-serif;
 }
 
 .projectSubtitle {
   margin: 0.45rem 0;
-  font-size: 0.92rem;
+  font-size: 1.5rem;
   color: rgba(255, 255, 255, 0.85);
 }
 
@@ -62,7 +63,6 @@
 }
 
 .projectListPage {
-  min-height: 100vh;
   min-height: 100dvh;
   padding: calc(var(--nav-height) + 1.6rem) var(--page-gutter) 2rem;
   color: #fff;
@@ -89,10 +89,7 @@
   content: "";
   position: absolute;
   inset: 0;
-  background-image: url("/b928b1b4-7b1d-43ba-a9b5-c30bd5d01487.jpg");
-  background-size: cover;
-  background-position: center;
-  background-repeat: no-repeat;
+  background-image: none;
   opacity: 0.18;
   mix-blend-mode: soft-light;
   pointer-events: none;
@@ -138,46 +135,40 @@
 .projectHeroImageWrap {
   position: relative;
   width: 100vw;
-  margin: 0 calc(50% - 50vw) 0.95rem;
-  height: clamp(12rem, 20vw, 18rem);
-  overflow: hidden;
-  border-radius: 0;
-  border: 1px solid rgba(255, 255, 255, 0.12);
-  background: rgba(9, 6, 8, 0.8);
-  box-shadow: 0 18px 45px rgba(0, 0, 0, 0.28);
-}
-
-.projectHeroImage {
-  object-fit: cover;
-  object-position: center;
-}
-
-.projectHeroOverlay {
-  position: absolute;
-  inset: 0;
+  margin: 0 calc(50% - 50vw) 1rem;
+  min-height: clamp(12rem, 20vw, 18rem);
+  padding: clamp(1.5rem, 3.5vw, 3rem);
   display: flex;
   align-items: flex-end;
   justify-content: flex-start;
-  padding: clamp(1rem, 3vw, 2rem);
-  background: linear-gradient(180deg, rgba(10, 8, 10, 0.05) 20%, rgba(10, 8, 10, 0.72) 100%);
+  overflow: hidden;
+  border-radius: 1.5rem;
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  background:
+    linear-gradient(135deg, rgba(255, 255, 255, 0.18), rgba(255, 255, 255, 0.05)),
+    rgba(9, 6, 8, 0.34);
+  backdrop-filter: blur(22px) saturate(160%);
+  -webkit-backdrop-filter: blur(22px) saturate(160%);
+  box-shadow:
+    0 18px 45px rgba(0, 0, 0, 0.28),
+    inset 0 1px 0 rgba(255, 255, 255, 0.22);
 }
 
 .projectHeroTitle {
   margin: 0;
-  max-width: 90%;
-  font-size: clamp(1.8rem, 4.2vw, 4rem);
-  line-height: 0.95;
+  max-width: 100%;
+  font-size: clamp(7rem, 5.8vw, 5.25rem);
+  line-height: 1;
   letter-spacing: 0.02em;
-    color: rgba(112, 15, 15, 0.72);
-  font-family: var(--font-it-kroxen-demo), var(--font-brandel-luchador), "Arial Narrow", "Franklin Gothic Medium", sans-serif;
+  color: rgba(112, 15, 15, 0.72);
+  font-family: var(--font-brandel-luchador), "Arial Narrow", "Franklin Gothic Medium", Arial, sans-serif;
   font-weight: 700;
-  text-shadow: 0 3px 20px rgba(0, 0, 0, 0.55);
 }
 
 .projectHeroTitleBelco {
-  font-family: var(--font-it-kroxen-demo), var(--font-brandel-luchador), "Arial Narrow", "Franklin Gothic Medium", sans-serif;
+  font-family: var(--font-brandel-luchador), "Arial Narrow", "Franklin Gothic Medium", Arial, sans-serif;
   font-weight: 700;
-    color: rgba(112, 15, 15, 0.72);
+  color: rgba(112, 15, 15, 0.72);
 }
 
 .projectHeroTextWrap {
@@ -309,7 +300,7 @@
   border: 1px solid rgba(255, 255, 255, 0.72);
   background: rgba(255, 255, 255, 0.14);
   padding: 0.8rem 2.5rem;
-  font-family: var(--font-it-kroxen-demo), sans-serif;
+  font-family: var(--font-brandel-luchador), "Arial Narrow", "Franklin Gothic Medium", Arial, sans-serif;
   transition: all 0.2s ease;
 }
 
@@ -475,8 +466,10 @@
 @media (max-width: 640px) {
   .projectHeroImageWrap {
     width: 100vw;
-    margin: 0 calc(50% - 50vw) 0.85rem;
-    height: clamp(8rem, 16vw, 11rem);
+    margin: 0 calc(50% - 50vw) 1rem;
+    min-height: clamp(10rem, 26vw, 14rem);
+    padding: 1.1rem;
+    border-radius: 1rem;
   }
 
 
@@ -493,7 +486,7 @@
 
   .projectHeroTitle {
     max-width: 100%;
-    font-size: clamp(1.5rem, 8vw, 2.5rem);
+    font-size: clamp(1.9rem, 9vw, 3.1rem);
   }
 
   .projectDetailTopbar {

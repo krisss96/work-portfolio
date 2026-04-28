@@ -106,7 +106,8 @@ body {
     overflow-y: auto;
     padding-top: 0;
     scroll-padding-top: 0;
-    scroll-snap-type: none;
+    /* enable vertical mandatory snapping so sections snap into place */
+    scroll-snap-type: y mandatory;
     -webkit-overflow-scrolling: touch;
 }
 
@@ -125,6 +126,8 @@ body {
     z-index: 1;
     box-shadow: none;
     overflow: hidden;
+    /* Ensure each snap-section is a snap stop */
+    scroll-snap-align: start;
 }
 
 .section-inner {
@@ -225,3 +228,41 @@ body {
         transition: none;
     }
 }
+
+/* Smooth scrolling for non-reduced-motion users */
+@media (prefers-reduced-motion: no-preference) {
+    html {
+        scroll-behavior: smooth;
+    }
+}
+
+/* Parallax overlay behavior for snap sections
+   - .is-upcoming: next section that is entering the viewport; slightly translated and elevated
+   - .is-active: the section that should appear on top and visually 'pops' over the previous
+*/
+.snap-section {
+    transition: transform 0.6s cubic-bezier(.2,.9,.2,1), opacity 0.5s ease, box-shadow 0.45s ease;
+    will-change: transform, opacity;
+    transform: translateY(0);
+    opacity: 1;
+}
+
+.snap-section.is-upcoming {
+    transform: translateY(6%);
+    opacity: 0.94;
+    z-index: 2;
+    box-shadow: 0 -8px 34px rgba(0,0,0,0.28);
+}
+
+.snap-section.is-active {
+    transform: translateY(0);
+    opacity: 1;
+    z-index: 4;
+    box-shadow: 0 -22px 64px rgba(0,0,0,0.5);
+}
+
+/* Make sure the container still scrolls normally */
+.snap-container {
+    -webkit-overflow-scrolling: touch;
+}
+

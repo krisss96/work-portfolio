@@ -4,6 +4,8 @@ import localFont from "next/font/local";
 import "./globals.css";
 import SkipLink from "./components/SkipLink";
 import Nav from "./components/Nav";
+import ScrollReset from "./components/ScrollResetClient";
+import ParallaxScroll from "./components/ParallaxScroll";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -54,6 +56,8 @@ export default function RootLayout({
        className={`${geistSans.variable} ${geistMono.variable} ${geologica.variable} ${brandelLuchador.variable} ${itKroxenDemo.variable} ${jaldi.variable} h-full antialiased`}
      >
        <body className="min-h-full flex flex-col" suppressHydrationWarning>
+          <ScrollReset />
+          <ParallaxScroll />
          <SkipLink />
          <Nav />
          {children}

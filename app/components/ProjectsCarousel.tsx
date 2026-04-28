@@ -9,18 +9,38 @@ import type { Project } from "@/lib/projects";
 import styles from "./ProjectsCarousel.module.css";
 import contactStyles from "../contact/page.module.css";
 
+const CAROUSEL_ORDER: string[] = [
+  "temp-interactive-landing", // Pac-xon
+  "temp-data-visualization", // Virtual gallery
+  "temp-animation-studio", // Belco
+  "saas-dashboard-suite", // StepQuest (center at initial load)
+  "kenya-scooter-app",
+  "temp-component-lab", // Koldinghus
+  "creative-portfolio-platform", // Photography portfolio
+];
+
 function ProjectSlot({ project, slotIndex }: { project: Project; slotIndex: number }) {
   const router = useRouter();
   const imageUrl =
     project.slug === "temp-animation-studio"
       ? "/mockup2.png"
-      : project.slug === "temp-data-visualization"
-        ? "/mockup1.png"
+      : project.slug === "creative-portfolio-platform"
+        ? "/Group_10.png"
+        : project.slug === "temp-data-visualization"
+        ? "/Group_11.png"
+                : project.slug === "temp-component-lab"
+                    ? "/Group_13.png"
+                    : project.slug === "saas-dashboard-suite"
+                        ? "/Group_15.png"
+                        : project.slug === "kenya-scooter-app"
+                            ? "/Group_17.png"
+                            : project.slug === "temp-interactive-landing"
+                                ? "/Group_16.png"
         : project.heroImage.src;
 
   const texture = useTexture(imageUrl);
-  const radius = 22;
-  const theta = 0.58;
+  const radius = 20.5;
+  const theta = 0.63;
   const angle = slotIndex * theta;
   const x = Math.sin(angle) * radius;
   const z = -Math.cos(angle) * radius;
@@ -37,11 +57,11 @@ function ProjectSlot({ project, slotIndex }: { project: Project; slotIndex: numb
       </mesh>
       <Text
         position={[0, -7.62, 0.1]}
-        fontSize={0.56}
-        color="rgba(112, 15, 15, 0.72)"
+        fontSize={1.1}
+        color="#fff"
         fontWeight={400}
         anchorX="center"
-        className={styles.projectTitle}
+        font="/brandel-luchador.regular.ttf"
       >
         {project.title.toUpperCase()}
       </Text>
@@ -50,7 +70,17 @@ function ProjectSlot({ project, slotIndex }: { project: Project; slotIndex: numb
 }
 
 export default function ProjectsCarousel({ projects }: { projects: Project[] }) {
-  const projectCount = projects.length;
+  const orderedProjects = useMemo(() => {
+    const bySlug = new Map(projects.map((project) => [project.slug, project]));
+    const prioritized = CAROUSEL_ORDER
+      .map((slug) => bySlug.get(slug))
+      .filter((project): project is Project => Boolean(project));
+
+    const remaining = projects.filter((project) => !CAROUSEL_ORDER.includes(project.slug));
+    return [...prioritized, ...remaining];
+  }, [projects]);
+
+  const projectCount = orderedProjects.length;
   const [offset, setOffset] = useState(0);
 
   const canRotate = projectCount > 1;
@@ -92,14 +122,14 @@ export default function ProjectsCarousel({ projects }: { projects: Project[] }) 
         <Canvas camera={{ position: [0, 0, 24], fov: 35 }}>
           <ambientLight intensity={0.5} />
           <group position={[0, 0, 14]}>
-            {projects.map((_, index) => {
+            {orderedProjects.map((_, index) => {
               const projectIndex = (index + normalizedOffset) % projectCount;
               const slotIndex = index - (projectCount - 1) / 2;
 
               return (
                 <ProjectSlot
-                  key={projects[projectIndex].slug}
-                  project={projects[projectIndex]}
+                  key={orderedProjects[projectIndex].slug}
+                  project={orderedProjects[projectIndex]}
                   slotIndex={slotIndex}
                 />
               );
