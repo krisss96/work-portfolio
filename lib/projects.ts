@@ -25,26 +25,63 @@ export type Project = {
 
 export const projects: Project[] = [
   {
-    slug: "luxury-retail-web",
-    title: "Personal Portfolio",
-    subtitle: "Individual project for university",
+    slug: "kenya-scooter-app",
+    title: "Kenya Scooter App",
+    subtitle: "Developed for De Ontdekfabriek",
     summary:
-      "This platform was developed to showcase my university work and academic identity through the Semester. My goal was to present my skills in an easy-to-navigate environment and I aimed to create a balance between a minimalistic, clean design and creative interactive elements that reflect my personality as a designer and developer.",
-    year: "2025",
-    period: "March 2025 - April 2025",
-    role: "Web Developer & UI/UX Designer",
+      "Working directly for our clients, Hugo Vrijdag and Igino van Haandel from De Ontdekfabriek, my team and I are developing an immersive Electric Scooter Simulator. Our mission is to bridge the gap between a simple game and a realistic simulator, providing children with an authentic sense of what it’s like to operate a vehicle in a high-stakes environment.\n" +
+        "\n" +
+        "The game is designed for iPad and integrated into a physical steering setup; children navigate the scooter through the Kenyan savanna by physically tilting the tablet like a steering wheel. We inherited this project from previous developers, and our task is to refactor the functionality and completely redesign the environment to ensure the physics, steering, and road obstacles feel real enough to provide a genuine driving experience.",
+    year: "2026",
+    period: "February 2026 - In progress",
+    role: "Mobile App Developer & Designer",
     heroImage: {
-      src: "/img_1.png",
-      alt: "Luxury retail project preview",
+      src: "/img_4.png",
+      alt: "Kenya scooter app preview",
     },
-    demoUrl: "https://example.com/luxury-retail-demo",
-    repoUrl: "https://github.com/example/luxury-retail-web",
-    demoVideoUrl: "https://www.youtube.com/embed/jNQXAC9IVRw",
-    stack: ["HTML", "JavaScript", "CSS"],
+    demoUrl: "https://example.com/kenya-scooter-app",
+    repoUrl: "https://github.com/example/kenya-scooter-app",
+    demoVideoUrl: "https://www.youtube.com/embed/kenyaScooterDemo",
+    stack: ["Flutter"],
+    highlights: [
+      " ",
+    ],
+    whatILearned: [
+      " Codebase Handover & Refactoring: I gained experience taking over an existing project from a previous team.",
+    ],
+      aboutTheClient: {
+          name: "De Ontdekfabriek (The Discovery Factory), Eindhoven. As a major innovation hub in the Brainport region, they focus on inspiring children through interactive technology and creative storytelling.\n ",
+          description: "Problem:: The client needed a realistic tool to help 12–14-year-olds identify if they have a natural interest in machinery and technical career paths.The existing version of the game was unfinished and lacked the realism needed to keep children engaged."
+      }
+  },
+  {
+    slug: "temp-component-lab",
+    title: "Koldinghus app",
+    subtitle: "Developed for International IBA, Denmark, Inclusive by design program",
+    summary:
+      "I participated in the International Multimedia/ICT Week at IBA International Business Academy in Denmark. Working in a multicultural team, we developed an inclusive mobile concept for the Koldinghus Museum designed specifically for intergenerational groups. Our app acts as a navigator through the museum, bridging the gap between children and adults by providing a shared, immersive journey. Our concept ensures that visitors of all ages can explore the castle’s history together without barriers. The project concluded with a final presentation to a board of international teachers, for which I was awarded a formal Certificate of participation.",
+    year: "2026",
+    period: "March 2026",
+    role: "Group Leader & UI/UX Designer",
+    heroImage: {
+      src: "/img_5.png",
+      alt: "Temporary component lab project preview",
+    },
+    demoUrl: "https://example.com/temp-component-lab",
+    repoUrl: "https://github.com/example/temp-component-lab",
+    demoVideoUrl: "/Screen Recording 2026-04-28 132217.mp4",
+    stack: ["Figma"],
     highlights: [],
     whatILearned: [
-      "Interactive Design & Animation: I experimented with JavaScript and CSS transitions to add a layer of interactivity."
+      "Strategic Problem-Solving:  improved my communication skills by gaining hands-on experience co-working with a team from diverse backgrounds and different skillsets. This taught me how to collaborate effectively with people I didn't know.",
+      "Intercultural Communication: Working with a diverse, international team taught me to bridge communication gaps and integrate different mindsets into a single, cohesive concept.",
+      "Time Management Under Pressure: The strict one-week deadline forced me to improve my ability to prioritize essential tasks and keep the team organized.",
+      "Strategic Problem-Solving: I learned to design solutions for a highly diverse target group."
     ],
+    aboutTheClient: {
+      name: "",
+      description: "Client: Koldinghus Museum, a historic 13th-century Danish royal castle and museum.\nProblem: As a complex historical site, Koldinghus faced accessibility barriers that made it difficult for diverse visitors to navigate and engage with its history. We were tasked with identifying real-world barriers within the castle and developing a solution using Inclusive Design and Generative AI that ensures all visitors, regardless of their background, can engage with the museum's history."
+    },
   },
   {
     slug: "saas-dashboard-suite",
@@ -61,7 +98,7 @@ export const projects: Project[] = [
     },
     demoUrl: "https://example.com/saas-dashboard-demo",
     repoUrl: "https://github.com/krisss96/stepquest_app",
-    demoVideoUrl: "https://www.youtube.com/embed/aqz-KE-bpKQ",
+    demoVideoUrl: "/Video Project 5.mp4",
     stack: ["Flutter"],
     highlights: [],
     whatILearned: [
@@ -85,7 +122,7 @@ export const projects: Project[] = [
     },
     demoUrl: "https://nara-kupenova-photography.vercel.app/",
     repoUrl: "https://github.com/krisss96/nara-kupenova-photography",
-    demoVideoUrl: "https://www.youtube.com/embed/kXYiU_JCYtU",
+    demoVideoUrl: "/Screen Recording 2026-04-28 130248.mp4",
     stack: ["React", "Supabase", "PostgreSQL"],
     highlights: [],
     whatILearned: [
@@ -112,7 +149,7 @@ export const projects: Project[] = [
     },
     demoUrl: "https://example.com/temp-interactive-landing",
     repoUrl: "https://github.com/Bloxmine/node-flipdots",
-    demoVideoUrl: "/belcovideo.mp4",
+    demoVideoUrl: "/a72b935c-3f31-4e8d-96ec-1f29d0466e63.mov",
     stack: ["Next.js", "Figma"],
     highlights: [],
     whatILearned: [
@@ -125,33 +162,28 @@ export const projects: Project[] = [
     },
   },
   {
-    slug: "temp-component-lab",
-    title: "Koldinghus app",
-    subtitle: "Developed for International IBA, Denmark, Inclusive by design program",
+    slug: "temp-data-visualization",
+    title: "Virtual gallery",
+    subtitle: "Individual project",
     summary:
-      "I participated in the International Multimedia/ICT Week at IBA International Business Academy in Denmark. Working in a multicultural team, we developed an inclusive mobile concept for the Koldinghus Museum designed specifically for intergenerational groups. Our app acts as a navigator through the museum, bridging the gap between children and adults by providing a shared, immersive journey. Our concept ensures that visitors of all ages can explore the castle’s history together without barriers. The project concluded with a final presentation to a board of international teachers, for which I was awarded a formal Certificate of participation.",
+      "This individual project is an interactive 3D gallery built to showcase a collection of Renaissance paintings. Moving away from traditional 2D layouts, I used this project to experiment with immersive web environments. The gallery features a custom-built 3D space with classical architectural elements where users can navigate freely using keyboard and mouse controls. To complete the experience, I integrated ambient music and interactive descriptions that appear as the user approaches each artwork.",
     year: "2026",
-    period: "March 2026",
-    role: "Group Leader & UI/UX Designer",
+    period: "June 2025",
+    role: "Creative Developer & Designer",
     heroImage: {
-      src: "/img_5.png",
-      alt: "Temporary component lab project preview",
+      src: "/Group_7.png",
+      alt: "Temporary data visualization preview",
     },
-    demoUrl: "https://example.com/temp-component-lab",
-    repoUrl: "https://github.com/example/temp-component-lab",
-    demoVideoUrl: "https://www.youtube.com/embed/aqz-KE-bpKQ",
-    stack: ["Figma"],
+    demoUrl: "https://project-x-phi-five.vercel.app/",
+    repoUrl: "https://github.com/krisss96/virtual-gallery",
+    demoVideoUrl: "/galvideo.mp4",
+    stack: ["Three.js", "JavaScript", "HTML", "CSS", "Licensed 3D Textures"],
     highlights: [],
     whatILearned: [
-      "Strategic Problem-Solving:  improved my communication skills by gaining hands-on experience co-working with a team from diverse backgrounds and different skillsets. This taught me how to collaborate effectively with people I didn't know.",
-      "Intercultural Communication: Working with a diverse, international team taught me to bridge communication gaps and integrate different mindsets into a single, cohesive concept.",
-      "Time Management Under Pressure: The strict one-week deadline forced me to improve my ability to prioritize essential tasks and keep the team organized.",
-      "Strategic Problem-Solving: I learned to design solutions for a highly diverse target group."
+      "Self-Taught 3D Frameworks: This was my first time working with Three.js. I taught myself how to build a 3D environment from scratch,",
+      "Multisensory UX Design: I learned how to balance visual, auditory and informational elements, making the space more interactive and informative for the user.",
+      "Performance & Visual Balance: I learned to balance high-quality 3D rendering with web performance by optimizing lighting and shadows.",
     ],
-    aboutTheClient: {
-      name: "",
-      description: "Client: Koldinghus Museum, a historic 13th-century Danish royal castle and museum.\nProblem: As a complex historical site, Koldinghus faced accessibility barriers that made it difficult for diverse visitors to navigate and engage with its history. We were tasked with identifying real-world barriers within the castle and developing a solution using Inclusive Design and Generative AI that ensures all visitors, regardless of their background, can engage with the museum's history."
-    },
   },
   {
     slug: "temp-animation-studio",
@@ -176,89 +208,11 @@ export const projects: Project[] = [
       "Balancing Immersion and Usability: I focused on creating a consistent visual identity and learned how to integrate immersive elements and smooth interactions while maintaining high standards of user-friendliness.",
     ],
     aboutTheClient: {
-      name: "BELCO Alliance",
-      description: "Client: BELCO Alliance is a non-profit consortium of five leading European universities from France, Germany, the Netherlands, Finland, and Denmark. As part of a global network of 20 institutions, they promote internationalization by offering high-quality academic modules, joint research, and student exchanges to a worldwide audience.\n\nProblem:The Alliance's original platform was largely non-functional, creating a fractured user experience that failed to represent the network's prestige. Critical barriers - including incomplete functionality, significant content gaps, and complex navigation - made it difficult for visitors to engage with the consortium's offerings. These technical and design issues directly hindered BELCO's mission by preventing effective international collaboration and program discovery."
+      name: "BELCO Alliance is a non-profit consortium of five leading European universities from France, Germany, the Netherlands, Finland, and Denmark. As part of a global network of 20 institutions, they promote internationalization by offering high-quality academic modules, joint research, and student exchanges to a worldwide audience.",
+      description: "Problem:The Alliance's original platform was largely non-functional, creating a fractured user experience that failed to represent the network's prestige. Critical barriers - including incomplete functionality, significant content gaps, and complex navigation - made it difficult for visitors to engage with the consortium's offerings. These technical and design issues directly hindered BELCO's mission by preventing effective international collaboration and program discovery."
     }
-  },
-  {
-    slug: "temp-data-visualization",
-    title: "Virtual gallery",
-    subtitle: "Individual project",
-    summary:
-      "This individual project is an interactive 3D gallery built to showcase a collection of Renaissance paintings. Moving away from traditional 2D layouts, I used this project to experiment with immersive web environments. The gallery features a custom-built 3D space with classical architectural elements where users can navigate freely using keyboard and mouse controls. To complete the experience, I integrated ambient music and interactive descriptions that appear as the user approaches each artwork.",
-    year: "2026",
-    period: "June 2025",
-    role: "Creative Developer & Designer",
-    heroImage: {
-      src: "/hero1.png",
-      alt: "Temporary data visualization preview",
-    },
-    demoUrl: "https://project-x-phi-five.vercel.app/",
-    repoUrl: "https://github.com/krisss96/virtual-gallery",
-    demoVideoUrl: "/galvideo.mp4",
-    stack: ["Three.js", "JavaScript", "HTML", "CSS", "Licensed 3D Textures"],
-    highlights: [],
-    whatILearned: [
-      "Self-Taught 3D Frameworks: This was my first time working with Three.js. I taught myself how to build a 3D environment from scratch,",
-      "Multisensory UX Design: I learned how to balance visual, auditory and informational elements, making the space more interactive and informative for the user.",
-      "Performance & Visual Balance: I learned to balance high-quality 3D rendering with web performance by optimizing lighting and shadows.",
-    ],
-  },
-  {
-    slug: "kenya-scooter-app",
-    title: "Kenya Scooter App",
-    subtitle: "Urban mobility solution for Nairobi",
-    summary:
-      "A mobile app designed to streamline scooter rentals and payments in Nairobi, Kenya. The app features real-time scooter tracking, QR code unlock, and a digital wallet for seamless rides.",
-    year: "2026",
-    period: "July 2025 - September 2025",
-    role: "Mobile App Developer",
-    heroImage: {
-      src: "/img_4.png",
-      alt: "Kenya scooter app preview",
-    },
-    demoUrl: "https://example.com/kenya-scooter-app",
-    repoUrl: "https://github.com/example/kenya-scooter-app",
-    demoVideoUrl: "https://www.youtube.com/embed/kenyaScooterDemo",
-    stack: ["Flutter", "Firebase", "Google Maps API"],
-    highlights: [
-      "Integrated real-time location tracking for scooters.",
-      "Implemented secure digital wallet and payment system.",
-      "Designed for low-bandwidth environments.",
-    ],
-    whatILearned: [
-      "How to build for emerging markets with unique infrastructure challenges.",
-      "How to optimize mobile UX for first-time smartphone users.",
-    ],
-  },
-  {
-    slug: "harvard-cs50-projects",
-    title: "Indv Project App",
-    subtitle: "Academic coding portfolio",
-    summary:
-      "A collection of programming assignments and final projects completed for Harvard's CS50 course, covering C, Python, SQL, and web development.",
-    year: "2025",
-    period: "January 2025 - May 2025",
-    role: "Student Developer",
-    heroImage: {
-      src: "/img_2.png",
-      alt: "Harvard CS50 projects preview",
-    },
-    demoUrl: "https://github.com/krisss96/harvard-cs50-projects",
-    repoUrl: "https://github.com/krisss96/harvard-cs50-projects",
-    demoVideoUrl: "https://www.youtube.com/embed/cs50Demo",
-    stack: ["C", "Python", "Flask", "SQLite"],
-    highlights: [
-      "Built a search engine in C.",
-      "Developed a finance web app with Flask and SQL.",
-      "Implemented data structures and algorithms from scratch.",
-    ],
-    whatILearned: [
-      "How to write efficient C code for memory management.",
-      "How to build full-stack web apps with Python and SQL.",
-    ],
-  },
-  {
+  }
+  /*{
     slug: "bookstore-website",
     title: "Bookstore Website",
     subtitle: "E-commerce platform for independent booksellers",
@@ -284,7 +238,7 @@ export const projects: Project[] = [
       "How to design scalable e-commerce data models.",
       "How to implement secure authentication and payments.",
     ],
-  },
+  },*/
 ];
 
 export function getProjectBySlug(slug: string) {

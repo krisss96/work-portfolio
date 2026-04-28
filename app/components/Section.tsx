@@ -14,7 +14,6 @@ export default function Section({
   fullWidth?: boolean;
 }>) {
   return (
-    // semantic region with programmatic focus target
     <section
       id={id}
       role={role}

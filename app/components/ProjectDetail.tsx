@@ -1,5 +1,4 @@
 import Link from "next/link";
-import Image from "next/image";
 import type { Project } from "@/lib/projects";
 import { getProjectNavigation } from "@/lib/projects";
 import styles from "./Projects.module.css";
@@ -11,32 +10,25 @@ type ProjectDetailProps = {
 export default function ProjectDetail({ project }: Readonly<ProjectDetailProps>) {
   const navigation = getProjectNavigation(project.slug);
   const isBelcoProject = project.slug === "temp-animation-studio";
-  const isVirtualGalleryProject = project.slug === "temp-data-visualization";
+  const isKoldinghusProject = project.slug === "temp-component-lab";
+  const isKenyaScooterProject = project.slug === "kenya-scooter-app";
   const isPacxonProject = project.slug === "temp-interactive-landing";
   const mediaSrc = isBelcoProject ? "/belcovideo.mp4" : project.demoVideoUrl;
-  const isLocalMp4 = mediaSrc.endsWith(".mp4");
+  const isVideoFile = /\.(mp4|mov|webm|ogg)$/i.test(mediaSrc || "");
+  const showDemoButton = !isKoldinghusProject && !isKenyaScooterProject; // Kenya has no demo button
+  const showRepoButton = !isKoldinghusProject && Boolean(project.repoUrl);
 
   return (
     <main className={`${styles.projectDetailPage} ${isBelcoProject ? styles.projectDetailPageBelco : ""}`}>
       <div className={styles.projectDetailShell}>
-        <section className={styles.projectHero} aria-label={`${project.title} hero image`}>
+        <section className={styles.projectHero} aria-label={`${project.title} hero section`}>
           <div className={styles.projectHeroImageWrap}>
-            <Image
-              src={project.heroImage.src}
-              alt={project.heroImage.alt}
-              fill
-              priority
-              sizes="100vw"
-              className={styles.projectHeroImage}
-            />
-            <div className={styles.projectHeroOverlay}>
-              <div className={styles.projectHeroTextWrap}>
-                <h1 className={`${styles.projectHeroTitle} ${isBelcoProject ? styles.projectHeroTitleBelco : ""}`}>{project.title}</h1>
-                {isBelcoProject && <p className={styles.projectHeroSubheaderBelco}>Developed for Belco Allience</p>}
-                {!isBelcoProject && (
-                  <p className={styles.projectSubtitle}>{project.subtitle}</p>
-                )}
-              </div>
+            <div className={styles.projectHeroTextWrap}>
+              <h1 className={`${styles.projectHeroTitle} ${isBelcoProject ? styles.projectHeroTitleBelco : ""}`}>{project.title}</h1>
+              {isBelcoProject && <p className={styles.projectHeroSubheaderBelco}>Developed for Belco Allience</p>}
+              {!isBelcoProject && (
+                <p className={styles.projectSubtitle}>{project.subtitle}</p>
+              )}
             </div>
           </div>
         </section>
@@ -50,7 +42,11 @@ export default function ProjectDetail({ project }: Readonly<ProjectDetailProps>)
           <section className={styles.projectMediaColumn} aria-label="Project demo and links">
             <div className={styles.projectMediaCard}>
               <div className={styles.projectMediaFrame}>
-                {isLocalMp4 ? (
+                {isKenyaScooterProject ? (
+                  <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', height: '100%', backgroundColor: '#1a1a1a', color: '#fff', fontSize: '1.25rem' }}>
+                    Demo currently not available
+                  </div>
+                ) : isVideoFile ? (
                   <video
                     className={styles.projectMediaVideo}
                     src={mediaSrc}
@@ -71,24 +67,37 @@ export default function ProjectDetail({ project }: Readonly<ProjectDetailProps>)
                 )}
               </div>
 
-              <div className={styles.projectMediaButtons}>
-                <a
-                  href={project.demoUrl}
-                  className={styles.projectActionPrimary}
-                  target="_blank"
-                  rel="noreferrer"
-                >
-                  Demo
-                </a>
-                <a
-                  href={project.repoUrl}
-                  className={styles.projectActionSecondary}
-                  target="_blank"
-                  rel="noreferrer"
-                >
-                  Git Repo
-                </a>
-              </div>
+              {(showDemoButton || showRepoButton) && (
+                <div className={styles.projectMediaButtons}>
+                  {showDemoButton && (
+                    isPacxonProject ? (
+                      <a href="/demo-unavailable" className={styles.projectActionPrimary}>
+                        Demo
+                      </a>
+                    ) : (
+                      <a
+                        href={project.demoUrl}
+                        className={styles.projectActionPrimary}
+                        target="_blank"
+                        rel="noreferrer"
+                      >
+                        Demo
+                      </a>
+                    )
+                  )}
+
+                  {showRepoButton && (
+                    <a
+                      href={project.repoUrl}
+                      className={styles.projectActionSecondary}
+                      target="_blank"
+                      rel="noreferrer"
+                    >
+                      Git Repo
+                    </a>
+                  )}
+                </div>
+              )}
             </div>
           </section>
 
