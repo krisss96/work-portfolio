@@ -55,6 +55,9 @@ export default function RootLayout({
        lang="en"
        className={`${geistSans.variable} ${geistMono.variable} ${geologica.variable} ${brandelLuchador.variable} ${itKroxenDemo.variable} ${jaldi.variable} h-full antialiased`}
      >
+       <head>
+         <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+       </head>
        <body className="min-h-full flex flex-col" suppressHydrationWarning>
           <ScrollReset />
           <ParallaxScroll />
