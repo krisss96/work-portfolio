@@ -143,7 +143,16 @@ export default function About() {
           </div>
           {!isSkillsTab && !isEducationTab && !isCertificatesTab && (
             <div className={styles.imageWrapper}>
-              <img src="/Group 433.png" alt="Profile" />
+                <img
+                  src="/Group%20433.png"
+                  alt="Profile"
+                  onError={(e) => {
+                    const img = e.currentTarget as HTMLImageElement;
+                    // Prevent infinite loop and show a safe fallback
+                    img.onerror = null;
+                    img.src = '/img.png';
+                  }}
+                />
               <a href="/KRISTIYANA-PETROVA-Resume.pdf (1).pdf" className={styles.cvButton} download>
                 Download CV
               </a>
